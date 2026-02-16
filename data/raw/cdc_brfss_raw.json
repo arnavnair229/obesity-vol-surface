@@ -1,0 +1,770 @@
+[{"yearstart":"2011","locationabbr":"AL","locationdesc":"Alabama","data_value":"32.0"}
+,{"yearstart":"2011","locationabbr":"AK","locationdesc":"Alaska","data_value":"27.4"}
+,{"yearstart":"2011","locationabbr":"AZ","locationdesc":"Arizona","data_value":"25.1"}
+,{"yearstart":"2011","locationabbr":"AR","locationdesc":"Arkansas","data_value":"30.9"}
+,{"yearstart":"2011","locationabbr":"CA","locationdesc":"California","data_value":"23.8"}
+,{"yearstart":"2011","locationabbr":"CO","locationdesc":"Colorado","data_value":"20.7"}
+,{"yearstart":"2011","locationabbr":"CT","locationdesc":"Connecticut","data_value":"24.5"}
+,{"yearstart":"2011","locationabbr":"DE","locationdesc":"Delaware","data_value":"28.8"}
+,{"yearstart":"2011","locationabbr":"DC","locationdesc":"District of Columbia","data_value":"23.7"}
+,{"yearstart":"2011","locationabbr":"FL","locationdesc":"Florida","data_value":"26.6"}
+,{"yearstart":"2011","locationabbr":"GA","locationdesc":"Georgia","data_value":"28.0"}
+,{"yearstart":"2011","locationabbr":"HI","locationdesc":"Hawaii","data_value":"21.8"}
+,{"yearstart":"2011","locationabbr":"ID","locationdesc":"Idaho","data_value":"27.0"}
+,{"yearstart":"2011","locationabbr":"IL","locationdesc":"Illinois","data_value":"27.1"}
+,{"yearstart":"2011","locationabbr":"IN","locationdesc":"Indiana","data_value":"30.8"}
+,{"yearstart":"2011","locationabbr":"IA","locationdesc":"Iowa","data_value":"29.0"}
+,{"yearstart":"2011","locationabbr":"KS","locationdesc":"Kansas","data_value":"29.6"}
+,{"yearstart":"2011","locationabbr":"KY","locationdesc":"Kentucky","data_value":"30.4"}
+,{"yearstart":"2011","locationabbr":"LA","locationdesc":"Louisiana","data_value":"33.4"}
+,{"yearstart":"2011","locationabbr":"ME","locationdesc":"Maine","data_value":"27.8"}
+,{"yearstart":"2011","locationabbr":"MD","locationdesc":"Maryland","data_value":"28.3"}
+,{"yearstart":"2011","locationabbr":"MA","locationdesc":"Massachusetts","data_value":"22.7"}
+,{"yearstart":"2011","locationabbr":"MI","locationdesc":"Michigan","data_value":"31.3"}
+,{"yearstart":"2011","locationabbr":"MN","locationdesc":"Minnesota","data_value":"25.7"}
+,{"yearstart":"2011","locationabbr":"MS","locationdesc":"Mississippi","data_value":"34.9"}
+,{"yearstart":"2011","locationabbr":"MO","locationdesc":"Missouri","data_value":"30.3"}
+,{"yearstart":"2011","locationabbr":"MT","locationdesc":"Montana","data_value":"24.6"}
+,{"yearstart":"2011","locationabbr":"NE","locationdesc":"Nebraska","data_value":"28.4"}
+,{"yearstart":"2011","locationabbr":"NV","locationdesc":"Nevada","data_value":"24.5"}
+,{"yearstart":"2011","locationabbr":"NH","locationdesc":"New Hampshire","data_value":"26.2"}
+,{"yearstart":"2011","locationabbr":"NJ","locationdesc":"New Jersey","data_value":"23.7"}
+,{"yearstart":"2011","locationabbr":"NM","locationdesc":"New Mexico","data_value":"26.3"}
+,{"yearstart":"2011","locationabbr":"NY","locationdesc":"New York","data_value":"24.5"}
+,{"yearstart":"2011","locationabbr":"NC","locationdesc":"North Carolina","data_value":"29.1"}
+,{"yearstart":"2011","locationabbr":"ND","locationdesc":"North Dakota","data_value":"27.8"}
+,{"yearstart":"2011","locationabbr":"OH","locationdesc":"Ohio","data_value":"29.6"}
+,{"yearstart":"2011","locationabbr":"OK","locationdesc":"Oklahoma","data_value":"31.1"}
+,{"yearstart":"2011","locationabbr":"OR","locationdesc":"Oregon","data_value":"26.7"}
+,{"yearstart":"2011","locationabbr":"PA","locationdesc":"Pennsylvania","data_value":"28.6"}
+,{"yearstart":"2011","locationabbr":"RI","locationdesc":"Rhode Island","data_value":"25.4"}
+,{"yearstart":"2011","locationabbr":"SC","locationdesc":"South Carolina","data_value":"30.8"}
+,{"yearstart":"2011","locationabbr":"SD","locationdesc":"South Dakota","data_value":"28.1"}
+,{"yearstart":"2011","locationabbr":"TN","locationdesc":"Tennessee","data_value":"29.2"}
+,{"yearstart":"2011","locationabbr":"TX","locationdesc":"Texas","data_value":"30.4"}
+,{"yearstart":"2011","locationabbr":"UT","locationdesc":"Utah","data_value":"24.4"}
+,{"yearstart":"2011","locationabbr":"VT","locationdesc":"Vermont","data_value":"25.4"}
+,{"yearstart":"2011","locationabbr":"VA","locationdesc":"Virginia","data_value":"29.2"}
+,{"yearstart":"2011","locationabbr":"WA","locationdesc":"Washington","data_value":"26.5"}
+,{"yearstart":"2011","locationabbr":"WV","locationdesc":"West Virginia","data_value":"32.4"}
+,{"yearstart":"2011","locationabbr":"WI","locationdesc":"Wisconsin","data_value":"27.7"}
+,{"yearstart":"2011","locationabbr":"WY","locationdesc":"Wyoming","data_value":"25.0"}
+,{"yearstart":"2011","locationabbr":"US","locationdesc":"National","data_value":"27.4"}
+,{"yearstart":"2011","locationabbr":"GU","locationdesc":"Guam"}
+,{"yearstart":"2011","locationabbr":"PR","locationdesc":"Puerto Rico"}
+,{"yearstart":"2011","locationabbr":"VI","locationdesc":"Virgin Islands"}
+,{"yearstart":"2012","locationabbr":"AL","locationdesc":"Alabama","data_value":"33.0"}
+,{"yearstart":"2012","locationabbr":"AK","locationdesc":"Alaska","data_value":"25.7"}
+,{"yearstart":"2012","locationabbr":"AZ","locationdesc":"Arizona","data_value":"26.0"}
+,{"yearstart":"2012","locationabbr":"AR","locationdesc":"Arkansas","data_value":"34.5"}
+,{"yearstart":"2012","locationabbr":"CA","locationdesc":"California","data_value":"25.0"}
+,{"yearstart":"2012","locationabbr":"CO","locationdesc":"Colorado","data_value":"20.5"}
+,{"yearstart":"2012","locationabbr":"CT","locationdesc":"Connecticut","data_value":"25.6"}
+,{"yearstart":"2012","locationabbr":"DE","locationdesc":"Delaware","data_value":"26.9"}
+,{"yearstart":"2012","locationabbr":"DC","locationdesc":"District of Columbia","data_value":"21.9"}
+,{"yearstart":"2012","locationabbr":"FL","locationdesc":"Florida","data_value":"25.2"}
+,{"yearstart":"2012","locationabbr":"GA","locationdesc":"Georgia","data_value":"29.1"}
+,{"yearstart":"2012","locationabbr":"HI","locationdesc":"Hawaii","data_value":"23.6"}
+,{"yearstart":"2012","locationabbr":"ID","locationdesc":"Idaho","data_value":"26.8"}
+,{"yearstart":"2012","locationabbr":"IL","locationdesc":"Illinois","data_value":"28.1"}
+,{"yearstart":"2012","locationabbr":"IN","locationdesc":"Indiana","data_value":"31.4"}
+,{"yearstart":"2012","locationabbr":"IA","locationdesc":"Iowa","data_value":"30.4"}
+,{"yearstart":"2012","locationabbr":"KS","locationdesc":"Kansas","data_value":"29.8"}
+,{"yearstart":"2012","locationabbr":"KY","locationdesc":"Kentucky","data_value":"31.3"}
+,{"yearstart":"2012","locationabbr":"LA","locationdesc":"Louisiana","data_value":"34.7"}
+,{"yearstart":"2012","locationabbr":"ME","locationdesc":"Maine","data_value":"28.3"}
+,{"yearstart":"2012","locationabbr":"MD","locationdesc":"Maryland","data_value":"27.6"}
+,{"yearstart":"2012","locationabbr":"MA","locationdesc":"Massachusetts","data_value":"22.9"}
+,{"yearstart":"2012","locationabbr":"MI","locationdesc":"Michigan","data_value":"31.1"}
+,{"yearstart":"2012","locationabbr":"MN","locationdesc":"Minnesota","data_value":"25.7"}
+,{"yearstart":"2012","locationabbr":"MS","locationdesc":"Mississippi","data_value":"34.6"}
+,{"yearstart":"2012","locationabbr":"MO","locationdesc":"Missouri","data_value":"29.6"}
+,{"yearstart":"2012","locationabbr":"MT","locationdesc":"Montana","data_value":"24.3"}
+,{"yearstart":"2012","locationabbr":"NE","locationdesc":"Nebraska","data_value":"28.6"}
+,{"yearstart":"2012","locationabbr":"NV","locationdesc":"Nevada","data_value":"26.2"}
+,{"yearstart":"2012","locationabbr":"NH","locationdesc":"New Hampshire","data_value":"27.3"}
+,{"yearstart":"2012","locationabbr":"NJ","locationdesc":"New Jersey","data_value":"24.6"}
+,{"yearstart":"2012","locationabbr":"NM","locationdesc":"New Mexico","data_value":"27.1"}
+,{"yearstart":"2012","locationabbr":"NY","locationdesc":"New York","data_value":"23.6"}
+,{"yearstart":"2012","locationabbr":"NC","locationdesc":"North Carolina","data_value":"29.6"}
+,{"yearstart":"2012","locationabbr":"ND","locationdesc":"North Dakota","data_value":"29.7"}
+,{"yearstart":"2012","locationabbr":"OH","locationdesc":"Ohio","data_value":"30.1"}
+,{"yearstart":"2012","locationabbr":"OK","locationdesc":"Oklahoma","data_value":"32.2"}
+,{"yearstart":"2012","locationabbr":"OR","locationdesc":"Oregon","data_value":"27.3"}
+,{"yearstart":"2012","locationabbr":"PA","locationdesc":"Pennsylvania","data_value":"29.1"}
+,{"yearstart":"2012","locationabbr":"RI","locationdesc":"Rhode Island","data_value":"25.7"}
+,{"yearstart":"2012","locationabbr":"SC","locationdesc":"South Carolina","data_value":"31.6"}
+,{"yearstart":"2012","locationabbr":"SD","locationdesc":"South Dakota","data_value":"28.1"}
+,{"yearstart":"2012","locationabbr":"TN","locationdesc":"Tennessee","data_value":"31.1"}
+,{"yearstart":"2012","locationabbr":"TX","locationdesc":"Texas","data_value":"29.2"}
+,{"yearstart":"2012","locationabbr":"UT","locationdesc":"Utah","data_value":"24.3"}
+,{"yearstart":"2012","locationabbr":"VT","locationdesc":"Vermont","data_value":"23.7"}
+,{"yearstart":"2012","locationabbr":"VA","locationdesc":"Virginia","data_value":"27.4"}
+,{"yearstart":"2012","locationabbr":"WA","locationdesc":"Washington","data_value":"26.8"}
+,{"yearstart":"2012","locationabbr":"WV","locationdesc":"West Virginia","data_value":"33.8"}
+,{"yearstart":"2012","locationabbr":"WI","locationdesc":"Wisconsin","data_value":"29.7"}
+,{"yearstart":"2012","locationabbr":"WY","locationdesc":"Wyoming","data_value":"24.6"}
+,{"yearstart":"2012","locationabbr":"US","locationdesc":"National","data_value":"27.7"}
+,{"yearstart":"2012","locationabbr":"GU","locationdesc":"Guam"}
+,{"yearstart":"2012","locationabbr":"PR","locationdesc":"Puerto Rico"}
+,{"yearstart":"2012","locationabbr":"VI","locationdesc":"Virgin Islands"}
+,{"yearstart":"2013","locationabbr":"AL","locationdesc":"Alabama","data_value":"32.4"}
+,{"yearstart":"2013","locationabbr":"AK","locationdesc":"Alaska","data_value":"28.4"}
+,{"yearstart":"2013","locationabbr":"AZ","locationdesc":"Arizona","data_value":"26.8"}
+,{"yearstart":"2013","locationabbr":"AR","locationdesc":"Arkansas","data_value":"34.6"}
+,{"yearstart":"2013","locationabbr":"CA","locationdesc":"California","data_value":"24.1"}
+,{"yearstart":"2013","locationabbr":"CO","locationdesc":"Colorado","data_value":"21.3"}
+,{"yearstart":"2013","locationabbr":"CT","locationdesc":"Connecticut","data_value":"25.0"}
+,{"yearstart":"2013","locationabbr":"DE","locationdesc":"Delaware","data_value":"31.1"}
+,{"yearstart":"2013","locationabbr":"DC","locationdesc":"District of Columbia","data_value":"22.9"}
+,{"yearstart":"2013","locationabbr":"FL","locationdesc":"Florida","data_value":"26.4"}
+,{"yearstart":"2013","locationabbr":"GA","locationdesc":"Georgia","data_value":"30.3"}
+,{"yearstart":"2013","locationabbr":"HI","locationdesc":"Hawaii","data_value":"21.8"}
+,{"yearstart":"2013","locationabbr":"ID","locationdesc":"Idaho","data_value":"29.6"}
+,{"yearstart":"2013","locationabbr":"IL","locationdesc":"Illinois","data_value":"29.4"}
+,{"yearstart":"2013","locationabbr":"IN","locationdesc":"Indiana","data_value":"31.8"}
+,{"yearstart":"2013","locationabbr":"IA","locationdesc":"Iowa","data_value":"31.3"}
+,{"yearstart":"2013","locationabbr":"KS","locationdesc":"Kansas","data_value":"30.0"}
+,{"yearstart":"2013","locationabbr":"KY","locationdesc":"Kentucky","data_value":"33.2"}
+,{"yearstart":"2013","locationabbr":"LA","locationdesc":"Louisiana","data_value":"33.1"}
+,{"yearstart":"2013","locationabbr":"ME","locationdesc":"Maine","data_value":"28.9"}
+,{"yearstart":"2013","locationabbr":"MD","locationdesc":"Maryland","data_value":"28.3"}
+,{"yearstart":"2013","locationabbr":"MA","locationdesc":"Massachusetts","data_value":"23.6"}
+,{"yearstart":"2013","locationabbr":"MI","locationdesc":"Michigan","data_value":"31.5"}
+,{"yearstart":"2013","locationabbr":"MN","locationdesc":"Minnesota","data_value":"25.5"}
+,{"yearstart":"2013","locationabbr":"MS","locationdesc":"Mississippi","data_value":"35.1"}
+,{"yearstart":"2013","locationabbr":"MO","locationdesc":"Missouri","data_value":"30.4"}
+,{"yearstart":"2013","locationabbr":"MT","locationdesc":"Montana","data_value":"24.6"}
+,{"yearstart":"2013","locationabbr":"NE","locationdesc":"Nebraska","data_value":"29.6"}
+,{"yearstart":"2013","locationabbr":"NV","locationdesc":"Nevada","data_value":"26.2"}
+,{"yearstart":"2013","locationabbr":"NH","locationdesc":"New Hampshire","data_value":"26.7"}
+,{"yearstart":"2013","locationabbr":"NJ","locationdesc":"New Jersey","data_value":"26.3"}
+,{"yearstart":"2013","locationabbr":"NM","locationdesc":"New Mexico","data_value":"26.4"}
+,{"yearstart":"2013","locationabbr":"NY","locationdesc":"New York","data_value":"25.4"}
+,{"yearstart":"2013","locationabbr":"NC","locationdesc":"North Carolina","data_value":"29.4"}
+,{"yearstart":"2013","locationabbr":"ND","locationdesc":"North Dakota","data_value":"31.0"}
+,{"yearstart":"2013","locationabbr":"OH","locationdesc":"Ohio","data_value":"30.4"}
+,{"yearstart":"2013","locationabbr":"OK","locationdesc":"Oklahoma","data_value":"32.5"}
+,{"yearstart":"2013","locationabbr":"OR","locationdesc":"Oregon","data_value":"26.5"}
+,{"yearstart":"2013","locationabbr":"PA","locationdesc":"Pennsylvania","data_value":"30.0"}
+,{"yearstart":"2013","locationabbr":"RI","locationdesc":"Rhode Island","data_value":"27.3"}
+,{"yearstart":"2013","locationabbr":"SC","locationdesc":"South Carolina","data_value":"31.7"}
+,{"yearstart":"2013","locationabbr":"SD","locationdesc":"South Dakota","data_value":"29.9"}
+,{"yearstart":"2013","locationabbr":"TN","locationdesc":"Tennessee","data_value":"33.7"}
+,{"yearstart":"2013","locationabbr":"TX","locationdesc":"Texas","data_value":"30.9"}
+,{"yearstart":"2013","locationabbr":"UT","locationdesc":"Utah","data_value":"24.1"}
+,{"yearstart":"2013","locationabbr":"VT","locationdesc":"Vermont","data_value":"24.7"}
+,{"yearstart":"2013","locationabbr":"VA","locationdesc":"Virginia","data_value":"27.2"}
+,{"yearstart":"2013","locationabbr":"WA","locationdesc":"Washington","data_value":"27.2"}
+,{"yearstart":"2013","locationabbr":"WV","locationdesc":"West Virginia","data_value":"35.1"}
+,{"yearstart":"2013","locationabbr":"WI","locationdesc":"Wisconsin","data_value":"29.8"}
+,{"yearstart":"2013","locationabbr":"WY","locationdesc":"Wyoming","data_value":"27.8"}
+,{"yearstart":"2013","locationabbr":"US","locationdesc":"National","data_value":"28.3"}
+,{"yearstart":"2013","locationabbr":"GU","locationdesc":"Guam"}
+,{"yearstart":"2013","locationabbr":"PR","locationdesc":"Puerto Rico","data_value":"27.9"}
+,{"yearstart":"2013","locationabbr":"VI","locationdesc":"Virgin Islands"}
+,{"yearstart":"2014","locationabbr":"AL","locationdesc":"Alabama","data_value":"33.5"}
+,{"yearstart":"2014","locationabbr":"AK","locationdesc":"Alaska","data_value":"29.7"}
+,{"yearstart":"2014","locationabbr":"AZ","locationdesc":"Arizona","data_value":"28.9"}
+,{"yearstart":"2014","locationabbr":"AR","locationdesc":"Arkansas","data_value":"35.9"}
+,{"yearstart":"2014","locationabbr":"CA","locationdesc":"California","data_value":"24.7"}
+,{"yearstart":"2014","locationabbr":"CO","locationdesc":"Colorado","data_value":"21.3"}
+,{"yearstart":"2014","locationabbr":"CT","locationdesc":"Connecticut","data_value":"26.3"}
+,{"yearstart":"2014","locationabbr":"DE","locationdesc":"Delaware","data_value":"30.7"}
+,{"yearstart":"2014","locationabbr":"DC","locationdesc":"District of Columbia","data_value":"21.7"}
+,{"yearstart":"2014","locationabbr":"FL","locationdesc":"Florida","data_value":"26.2"}
+,{"yearstart":"2014","locationabbr":"GA","locationdesc":"Georgia","data_value":"30.5"}
+,{"yearstart":"2014","locationabbr":"HI","locationdesc":"Hawaii","data_value":"22.1"}
+,{"yearstart":"2014","locationabbr":"ID","locationdesc":"Idaho","data_value":"28.9"}
+,{"yearstart":"2014","locationabbr":"IL","locationdesc":"Illinois","data_value":"29.3"}
+,{"yearstart":"2014","locationabbr":"IN","locationdesc":"Indiana","data_value":"32.7"}
+,{"yearstart":"2014","locationabbr":"IA","locationdesc":"Iowa","data_value":"30.9"}
+,{"yearstart":"2014","locationabbr":"KS","locationdesc":"Kansas","data_value":"31.3"}
+,{"yearstart":"2014","locationabbr":"KY","locationdesc":"Kentucky","data_value":"31.6"}
+,{"yearstart":"2014","locationabbr":"LA","locationdesc":"Louisiana","data_value":"34.9"}
+,{"yearstart":"2014","locationabbr":"ME","locationdesc":"Maine","data_value":"28.2"}
+,{"yearstart":"2014","locationabbr":"MD","locationdesc":"Maryland","data_value":"29.6"}
+,{"yearstart":"2014","locationabbr":"MA","locationdesc":"Massachusetts","data_value":"23.3"}
+,{"yearstart":"2014","locationabbr":"MI","locationdesc":"Michigan","data_value":"30.7"}
+,{"yearstart":"2014","locationabbr":"MN","locationdesc":"Minnesota","data_value":"27.6"}
+,{"yearstart":"2014","locationabbr":"MS","locationdesc":"Mississippi","data_value":"35.5"}
+,{"yearstart":"2014","locationabbr":"MO","locationdesc":"Missouri","data_value":"30.2"}
+,{"yearstart":"2014","locationabbr":"MT","locationdesc":"Montana","data_value":"26.4"}
+,{"yearstart":"2014","locationabbr":"NE","locationdesc":"Nebraska","data_value":"30.2"}
+,{"yearstart":"2014","locationabbr":"NV","locationdesc":"Nevada","data_value":"27.7"}
+,{"yearstart":"2014","locationabbr":"NH","locationdesc":"New Hampshire","data_value":"27.4"}
+,{"yearstart":"2014","locationabbr":"NJ","locationdesc":"New Jersey","data_value":"26.9"}
+,{"yearstart":"2014","locationabbr":"NM","locationdesc":"New Mexico","data_value":"28.4"}
+,{"yearstart":"2014","locationabbr":"NY","locationdesc":"New York","data_value":"27.0"}
+,{"yearstart":"2014","locationabbr":"NC","locationdesc":"North Carolina","data_value":"29.7"}
+,{"yearstart":"2014","locationabbr":"ND","locationdesc":"North Dakota","data_value":"32.2"}
+,{"yearstart":"2014","locationabbr":"OH","locationdesc":"Ohio","data_value":"32.6"}
+,{"yearstart":"2014","locationabbr":"OK","locationdesc":"Oklahoma","data_value":"33.0"}
+,{"yearstart":"2014","locationabbr":"OR","locationdesc":"Oregon","data_value":"27.9"}
+,{"yearstart":"2014","locationabbr":"PA","locationdesc":"Pennsylvania","data_value":"30.2"}
+,{"yearstart":"2014","locationabbr":"RI","locationdesc":"Rhode Island","data_value":"27.0"}
+,{"yearstart":"2014","locationabbr":"SC","locationdesc":"South Carolina","data_value":"32.1"}
+,{"yearstart":"2014","locationabbr":"SD","locationdesc":"South Dakota","data_value":"29.8"}
+,{"yearstart":"2014","locationabbr":"TN","locationdesc":"Tennessee","data_value":"31.2"}
+,{"yearstart":"2014","locationabbr":"TX","locationdesc":"Texas","data_value":"31.9"}
+,{"yearstart":"2014","locationabbr":"UT","locationdesc":"Utah","data_value":"25.7"}
+,{"yearstart":"2014","locationabbr":"VT","locationdesc":"Vermont","data_value":"24.8"}
+,{"yearstart":"2014","locationabbr":"VA","locationdesc":"Virginia","data_value":"28.5"}
+,{"yearstart":"2014","locationabbr":"WA","locationdesc":"Washington","data_value":"27.3"}
+,{"yearstart":"2014","locationabbr":"WV","locationdesc":"West Virginia","data_value":"35.7"}
+,{"yearstart":"2014","locationabbr":"WI","locationdesc":"Wisconsin","data_value":"31.2"}
+,{"yearstart":"2014","locationabbr":"WY","locationdesc":"Wyoming","data_value":"29.5"}
+,{"yearstart":"2014","locationabbr":"US","locationdesc":"National","data_value":"28.9"}
+,{"yearstart":"2014","locationabbr":"GU","locationdesc":"Guam","data_value":"28.0"}
+,{"yearstart":"2014","locationabbr":"PR","locationdesc":"Puerto Rico","data_value":"28.3"}
+,{"yearstart":"2014","locationabbr":"VI","locationdesc":"Virgin Islands"}
+,{"yearstart":"2015","locationabbr":"AL","locationdesc":"Alabama","data_value":"35.6"}
+,{"yearstart":"2015","locationabbr":"AK","locationdesc":"Alaska","data_value":"29.8"}
+,{"yearstart":"2015","locationabbr":"AZ","locationdesc":"Arizona","data_value":"28.4"}
+,{"yearstart":"2015","locationabbr":"AR","locationdesc":"Arkansas","data_value":"34.5"}
+,{"yearstart":"2015","locationabbr":"CA","locationdesc":"California","data_value":"24.2"}
+,{"yearstart":"2015","locationabbr":"CO","locationdesc":"Colorado","data_value":"20.2"}
+,{"yearstart":"2015","locationabbr":"CT","locationdesc":"Connecticut","data_value":"25.3"}
+,{"yearstart":"2015","locationabbr":"DE","locationdesc":"Delaware","data_value":"29.7"}
+,{"yearstart":"2015","locationabbr":"DC","locationdesc":"District of Columbia","data_value":"22.1"}
+,{"yearstart":"2015","locationabbr":"FL","locationdesc":"Florida","data_value":"26.8"}
+,{"yearstart":"2015","locationabbr":"GA","locationdesc":"Georgia","data_value":"30.7"}
+,{"yearstart":"2015","locationabbr":"HI","locationdesc":"Hawaii","data_value":"22.7"}
+,{"yearstart":"2015","locationabbr":"ID","locationdesc":"Idaho","data_value":"28.6"}
+,{"yearstart":"2015","locationabbr":"IL","locationdesc":"Illinois","data_value":"30.8"}
+,{"yearstart":"2015","locationabbr":"IN","locationdesc":"Indiana","data_value":"31.3"}
+,{"yearstart":"2015","locationabbr":"IA","locationdesc":"Iowa","data_value":"32.1"}
+,{"yearstart":"2015","locationabbr":"KS","locationdesc":"Kansas","data_value":"34.2"}
+,{"yearstart":"2015","locationabbr":"KY","locationdesc":"Kentucky","data_value":"34.6"}
+,{"yearstart":"2015","locationabbr":"LA","locationdesc":"Louisiana","data_value":"36.2"}
+,{"yearstart":"2015","locationabbr":"ME","locationdesc":"Maine","data_value":"30.0"}
+,{"yearstart":"2015","locationabbr":"MD","locationdesc":"Maryland","data_value":"28.9"}
+,{"yearstart":"2015","locationabbr":"MA","locationdesc":"Massachusetts","data_value":"24.3"}
+,{"yearstart":"2015","locationabbr":"MI","locationdesc":"Michigan","data_value":"31.2"}
+,{"yearstart":"2015","locationabbr":"MN","locationdesc":"Minnesota","data_value":"26.1"}
+,{"yearstart":"2015","locationabbr":"MS","locationdesc":"Mississippi","data_value":"35.6"}
+,{"yearstart":"2015","locationabbr":"MO","locationdesc":"Missouri","data_value":"32.4"}
+,{"yearstart":"2015","locationabbr":"MT","locationdesc":"Montana","data_value":"23.6"}
+,{"yearstart":"2015","locationabbr":"NE","locationdesc":"Nebraska","data_value":"31.4"}
+,{"yearstart":"2015","locationabbr":"NV","locationdesc":"Nevada","data_value":"26.7"}
+,{"yearstart":"2015","locationabbr":"NH","locationdesc":"New Hampshire","data_value":"26.3"}
+,{"yearstart":"2015","locationabbr":"NJ","locationdesc":"New Jersey","data_value":"25.6"}
+,{"yearstart":"2015","locationabbr":"NM","locationdesc":"New Mexico","data_value":"28.8"}
+,{"yearstart":"2015","locationabbr":"NY","locationdesc":"New York","data_value":"25.0"}
+,{"yearstart":"2015","locationabbr":"NC","locationdesc":"North Carolina","data_value":"30.1"}
+,{"yearstart":"2015","locationabbr":"ND","locationdesc":"North Dakota","data_value":"31.0"}
+,{"yearstart":"2015","locationabbr":"OH","locationdesc":"Ohio","data_value":"29.8"}
+,{"yearstart":"2015","locationabbr":"OK","locationdesc":"Oklahoma","data_value":"33.9"}
+,{"yearstart":"2015","locationabbr":"OR","locationdesc":"Oregon","data_value":"30.1"}
+,{"yearstart":"2015","locationabbr":"PA","locationdesc":"Pennsylvania","data_value":"30.0"}
+,{"yearstart":"2015","locationabbr":"RI","locationdesc":"Rhode Island","data_value":"26.0"}
+,{"yearstart":"2015","locationabbr":"SC","locationdesc":"South Carolina","data_value":"31.7"}
+,{"yearstart":"2015","locationabbr":"SD","locationdesc":"South Dakota","data_value":"30.4"}
+,{"yearstart":"2015","locationabbr":"TN","locationdesc":"Tennessee","data_value":"33.8"}
+,{"yearstart":"2015","locationabbr":"TX","locationdesc":"Texas","data_value":"32.4"}
+,{"yearstart":"2015","locationabbr":"UT","locationdesc":"Utah","data_value":"24.5"}
+,{"yearstart":"2015","locationabbr":"VT","locationdesc":"Vermont","data_value":"25.1"}
+,{"yearstart":"2015","locationabbr":"VA","locationdesc":"Virginia","data_value":"29.2"}
+,{"yearstart":"2015","locationabbr":"WA","locationdesc":"Washington","data_value":"26.4"}
+,{"yearstart":"2015","locationabbr":"WV","locationdesc":"West Virginia","data_value":"35.6"}
+,{"yearstart":"2015","locationabbr":"WI","locationdesc":"Wisconsin","data_value":"30.7"}
+,{"yearstart":"2015","locationabbr":"WY","locationdesc":"Wyoming","data_value":"29.0"}
+,{"yearstart":"2015","locationabbr":"US","locationdesc":"National","data_value":"28.9"}
+,{"yearstart":"2015","locationabbr":"GU","locationdesc":"Guam","data_value":"31.6"}
+,{"yearstart":"2015","locationabbr":"PR","locationdesc":"Puerto Rico","data_value":"29.5"}
+,{"yearstart":"2015","locationabbr":"VI","locationdesc":"Virgin Islands"}
+,{"yearstart":"2016","locationabbr":"AL","locationdesc":"Alabama","data_value":"35.7"}
+,{"yearstart":"2016","locationabbr":"AK","locationdesc":"Alaska","data_value":"31.4"}
+,{"yearstart":"2016","locationabbr":"AZ","locationdesc":"Arizona","data_value":"29.0"}
+,{"yearstart":"2016","locationabbr":"AR","locationdesc":"Arkansas","data_value":"35.7"}
+,{"yearstart":"2016","locationabbr":"CA","locationdesc":"California","data_value":"25.0"}
+,{"yearstart":"2016","locationabbr":"CO","locationdesc":"Colorado","data_value":"22.3"}
+,{"yearstart":"2016","locationabbr":"CT","locationdesc":"Connecticut","data_value":"26.0"}
+,{"yearstart":"2016","locationabbr":"DE","locationdesc":"Delaware","data_value":"30.7"}
+,{"yearstart":"2016","locationabbr":"DC","locationdesc":"District of Columbia","data_value":"22.6"}
+,{"yearstart":"2016","locationabbr":"FL","locationdesc":"Florida","data_value":"27.4"}
+,{"yearstart":"2016","locationabbr":"GA","locationdesc":"Georgia","data_value":"31.4"}
+,{"yearstart":"2016","locationabbr":"HI","locationdesc":"Hawaii","data_value":"23.8"}
+,{"yearstart":"2016","locationabbr":"ID","locationdesc":"Idaho","data_value":"27.4"}
+,{"yearstart":"2016","locationabbr":"IL","locationdesc":"Illinois","data_value":"31.6"}
+,{"yearstart":"2016","locationabbr":"IN","locationdesc":"Indiana","data_value":"32.5"}
+,{"yearstart":"2016","locationabbr":"IA","locationdesc":"Iowa","data_value":"32.0"}
+,{"yearstart":"2016","locationabbr":"KS","locationdesc":"Kansas","data_value":"31.2"}
+,{"yearstart":"2016","locationabbr":"KY","locationdesc":"Kentucky","data_value":"34.2"}
+,{"yearstart":"2016","locationabbr":"LA","locationdesc":"Louisiana","data_value":"35.5"}
+,{"yearstart":"2016","locationabbr":"ME","locationdesc":"Maine","data_value":"29.9"}
+,{"yearstart":"2016","locationabbr":"MD","locationdesc":"Maryland","data_value":"29.9"}
+,{"yearstart":"2016","locationabbr":"MA","locationdesc":"Massachusetts","data_value":"23.6"}
+,{"yearstart":"2016","locationabbr":"MI","locationdesc":"Michigan","data_value":"32.5"}
+,{"yearstart":"2016","locationabbr":"MN","locationdesc":"Minnesota","data_value":"27.8"}
+,{"yearstart":"2016","locationabbr":"MS","locationdesc":"Mississippi","data_value":"37.3"}
+,{"yearstart":"2016","locationabbr":"MO","locationdesc":"Missouri","data_value":"31.7"}
+,{"yearstart":"2016","locationabbr":"MT","locationdesc":"Montana","data_value":"25.5"}
+,{"yearstart":"2016","locationabbr":"NE","locationdesc":"Nebraska","data_value":"32.0"}
+,{"yearstart":"2016","locationabbr":"NV","locationdesc":"Nevada","data_value":"25.8"}
+,{"yearstart":"2016","locationabbr":"NH","locationdesc":"New Hampshire","data_value":"26.6"}
+,{"yearstart":"2016","locationabbr":"NJ","locationdesc":"New Jersey","data_value":"27.4"}
+,{"yearstart":"2016","locationabbr":"NM","locationdesc":"New Mexico","data_value":"28.3"}
+,{"yearstart":"2016","locationabbr":"NY","locationdesc":"New York","data_value":"25.5"}
+,{"yearstart":"2016","locationabbr":"NC","locationdesc":"North Carolina","data_value":"31.8"}
+,{"yearstart":"2016","locationabbr":"ND","locationdesc":"North Dakota","data_value":"31.9"}
+,{"yearstart":"2016","locationabbr":"OH","locationdesc":"Ohio","data_value":"31.5"}
+,{"yearstart":"2016","locationabbr":"OK","locationdesc":"Oklahoma","data_value":"32.8"}
+,{"yearstart":"2016","locationabbr":"OR","locationdesc":"Oregon","data_value":"28.7"}
+,{"yearstart":"2016","locationabbr":"PA","locationdesc":"Pennsylvania","data_value":"30.3"}
+,{"yearstart":"2016","locationabbr":"RI","locationdesc":"Rhode Island","data_value":"26.6"}
+,{"yearstart":"2016","locationabbr":"SC","locationdesc":"South Carolina","data_value":"32.3"}
+,{"yearstart":"2016","locationabbr":"SD","locationdesc":"South Dakota","data_value":"29.6"}
+,{"yearstart":"2016","locationabbr":"TN","locationdesc":"Tennessee","data_value":"34.8"}
+,{"yearstart":"2016","locationabbr":"TX","locationdesc":"Texas","data_value":"33.7"}
+,{"yearstart":"2016","locationabbr":"UT","locationdesc":"Utah","data_value":"25.4"}
+,{"yearstart":"2016","locationabbr":"VT","locationdesc":"Vermont","data_value":"27.1"}
+,{"yearstart":"2016","locationabbr":"VA","locationdesc":"Virginia","data_value":"29.0"}
+,{"yearstart":"2016","locationabbr":"WA","locationdesc":"Washington","data_value":"28.6"}
+,{"yearstart":"2016","locationabbr":"WV","locationdesc":"West Virginia","data_value":"37.7"}
+,{"yearstart":"2016","locationabbr":"WI","locationdesc":"Wisconsin","data_value":"30.7"}
+,{"yearstart":"2016","locationabbr":"WY","locationdesc":"Wyoming","data_value":"27.7"}
+,{"yearstart":"2016","locationabbr":"US","locationdesc":"National","data_value":"29.6"}
+,{"yearstart":"2016","locationabbr":"GU","locationdesc":"Guam","data_value":"28.3"}
+,{"yearstart":"2016","locationabbr":"PR","locationdesc":"Puerto Rico","data_value":"30.7"}
+,{"yearstart":"2016","locationabbr":"VI","locationdesc":"Virgin Islands","data_value":"32.5"}
+,{"yearstart":"2017","locationabbr":"AL","locationdesc":"Alabama","data_value":"36.3"}
+,{"yearstart":"2017","locationabbr":"AK","locationdesc":"Alaska","data_value":"34.2"}
+,{"yearstart":"2017","locationabbr":"AZ","locationdesc":"Arizona","data_value":"29.5"}
+,{"yearstart":"2017","locationabbr":"AR","locationdesc":"Arkansas","data_value":"35.0"}
+,{"yearstart":"2017","locationabbr":"CA","locationdesc":"California","data_value":"25.1"}
+,{"yearstart":"2017","locationabbr":"CO","locationdesc":"Colorado","data_value":"22.6"}
+,{"yearstart":"2017","locationabbr":"CT","locationdesc":"Connecticut","data_value":"26.9"}
+,{"yearstart":"2017","locationabbr":"DE","locationdesc":"Delaware","data_value":"31.8"}
+,{"yearstart":"2017","locationabbr":"DC","locationdesc":"District of Columbia","data_value":"23.0"}
+,{"yearstart":"2017","locationabbr":"FL","locationdesc":"Florida","data_value":"28.4"}
+,{"yearstart":"2017","locationabbr":"GA","locationdesc":"Georgia","data_value":"31.6"}
+,{"yearstart":"2017","locationabbr":"HI","locationdesc":"Hawaii","data_value":"23.8"}
+,{"yearstart":"2017","locationabbr":"ID","locationdesc":"Idaho","data_value":"29.3"}
+,{"yearstart":"2017","locationabbr":"IL","locationdesc":"Illinois","data_value":"31.1"}
+,{"yearstart":"2017","locationabbr":"IN","locationdesc":"Indiana","data_value":"33.6"}
+,{"yearstart":"2017","locationabbr":"IA","locationdesc":"Iowa","data_value":"36.4"}
+,{"yearstart":"2017","locationabbr":"KS","locationdesc":"Kansas","data_value":"32.4"}
+,{"yearstart":"2017","locationabbr":"KY","locationdesc":"Kentucky","data_value":"34.3"}
+,{"yearstart":"2017","locationabbr":"LA","locationdesc":"Louisiana","data_value":"36.2"}
+,{"yearstart":"2017","locationabbr":"ME","locationdesc":"Maine","data_value":"29.1"}
+,{"yearstart":"2017","locationabbr":"MD","locationdesc":"Maryland","data_value":"31.3"}
+,{"yearstart":"2017","locationabbr":"MA","locationdesc":"Massachusetts","data_value":"25.9"}
+,{"yearstart":"2017","locationabbr":"MI","locationdesc":"Michigan","data_value":"32.3"}
+,{"yearstart":"2017","locationabbr":"MN","locationdesc":"Minnesota","data_value":"28.4"}
+,{"yearstart":"2017","locationabbr":"MS","locationdesc":"Mississippi","data_value":"37.3"}
+,{"yearstart":"2017","locationabbr":"MO","locationdesc":"Missouri","data_value":"32.5"}
+,{"yearstart":"2017","locationabbr":"MT","locationdesc":"Montana","data_value":"25.3"}
+,{"yearstart":"2017","locationabbr":"NE","locationdesc":"Nebraska","data_value":"32.8"}
+,{"yearstart":"2017","locationabbr":"NV","locationdesc":"Nevada","data_value":"26.7"}
+,{"yearstart":"2017","locationabbr":"NH","locationdesc":"New Hampshire","data_value":"28.1"}
+,{"yearstart":"2017","locationabbr":"NJ","locationdesc":"New Jersey","data_value":"27.3"}
+,{"yearstart":"2017","locationabbr":"NM","locationdesc":"New Mexico","data_value":"28.4"}
+,{"yearstart":"2017","locationabbr":"NY","locationdesc":"New York","data_value":"25.7"}
+,{"yearstart":"2017","locationabbr":"NC","locationdesc":"North Carolina","data_value":"32.1"}
+,{"yearstart":"2017","locationabbr":"ND","locationdesc":"North Dakota","data_value":"33.2"}
+,{"yearstart":"2017","locationabbr":"OH","locationdesc":"Ohio","data_value":"33.8"}
+,{"yearstart":"2017","locationabbr":"OK","locationdesc":"Oklahoma","data_value":"36.5"}
+,{"yearstart":"2017","locationabbr":"OR","locationdesc":"Oregon","data_value":"29.4"}
+,{"yearstart":"2017","locationabbr":"PA","locationdesc":"Pennsylvania","data_value":"31.6"}
+,{"yearstart":"2017","locationabbr":"RI","locationdesc":"Rhode Island","data_value":"30.0"}
+,{"yearstart":"2017","locationabbr":"SC","locationdesc":"South Carolina","data_value":"34.1"}
+,{"yearstart":"2017","locationabbr":"SD","locationdesc":"South Dakota","data_value":"31.9"}
+,{"yearstart":"2017","locationabbr":"TN","locationdesc":"Tennessee","data_value":"32.8"}
+,{"yearstart":"2017","locationabbr":"TX","locationdesc":"Texas","data_value":"33.0"}
+,{"yearstart":"2017","locationabbr":"UT","locationdesc":"Utah","data_value":"25.3"}
+,{"yearstart":"2017","locationabbr":"VT","locationdesc":"Vermont","data_value":"27.6"}
+,{"yearstart":"2017","locationabbr":"VA","locationdesc":"Virginia","data_value":"30.1"}
+,{"yearstart":"2017","locationabbr":"WA","locationdesc":"Washington","data_value":"27.7"}
+,{"yearstart":"2017","locationabbr":"WV","locationdesc":"West Virginia","data_value":"38.1"}
+,{"yearstart":"2017","locationabbr":"WI","locationdesc":"Wisconsin","data_value":"32.0"}
+,{"yearstart":"2017","locationabbr":"WY","locationdesc":"Wyoming","data_value":"28.8"}
+,{"yearstart":"2017","locationabbr":"US","locationdesc":"National","data_value":"30.1"}
+,{"yearstart":"2017","locationabbr":"GU","locationdesc":"Guam","data_value":"34.3"}
+,{"yearstart":"2017","locationabbr":"PR","locationdesc":"Puerto Rico","data_value":"32.9"}
+,{"yearstart":"2017","locationabbr":"VI","locationdesc":"Virgin Islands"}
+,{"yearstart":"2018","locationabbr":"AL","locationdesc":"Alabama","data_value":"36.2"}
+,{"yearstart":"2018","locationabbr":"AK","locationdesc":"Alaska","data_value":"29.5"}
+,{"yearstart":"2018","locationabbr":"AZ","locationdesc":"Arizona","data_value":"29.5"}
+,{"yearstart":"2018","locationabbr":"AR","locationdesc":"Arkansas","data_value":"37.1"}
+,{"yearstart":"2018","locationabbr":"CA","locationdesc":"California","data_value":"25.8"}
+,{"yearstart":"2018","locationabbr":"CO","locationdesc":"Colorado","data_value":"23.0"}
+,{"yearstart":"2018","locationabbr":"CT","locationdesc":"Connecticut","data_value":"27.4"}
+,{"yearstart":"2018","locationabbr":"DE","locationdesc":"Delaware","data_value":"33.5"}
+,{"yearstart":"2018","locationabbr":"DC","locationdesc":"District of Columbia","data_value":"24.7"}
+,{"yearstart":"2018","locationabbr":"FL","locationdesc":"Florida","data_value":"30.7"}
+,{"yearstart":"2018","locationabbr":"GA","locationdesc":"Georgia","data_value":"32.5"}
+,{"yearstart":"2018","locationabbr":"HI","locationdesc":"Hawaii","data_value":"24.9"}
+,{"yearstart":"2018","locationabbr":"ID","locationdesc":"Idaho","data_value":"28.4"}
+,{"yearstart":"2018","locationabbr":"IL","locationdesc":"Illinois","data_value":"31.8"}
+,{"yearstart":"2018","locationabbr":"IN","locationdesc":"Indiana","data_value":"34.1"}
+,{"yearstart":"2018","locationabbr":"IA","locationdesc":"Iowa","data_value":"35.3"}
+,{"yearstart":"2018","locationabbr":"KS","locationdesc":"Kansas","data_value":"34.4"}
+,{"yearstart":"2018","locationabbr":"KY","locationdesc":"Kentucky","data_value":"36.6"}
+,{"yearstart":"2018","locationabbr":"LA","locationdesc":"Louisiana","data_value":"36.8"}
+,{"yearstart":"2018","locationabbr":"ME","locationdesc":"Maine","data_value":"30.4"}
+,{"yearstart":"2018","locationabbr":"MD","locationdesc":"Maryland","data_value":"30.9"}
+,{"yearstart":"2018","locationabbr":"MA","locationdesc":"Massachusetts","data_value":"25.7"}
+,{"yearstart":"2018","locationabbr":"MI","locationdesc":"Michigan","data_value":"33.0"}
+,{"yearstart":"2018","locationabbr":"MN","locationdesc":"Minnesota","data_value":"30.1"}
+,{"yearstart":"2018","locationabbr":"MS","locationdesc":"Mississippi","data_value":"39.5"}
+,{"yearstart":"2018","locationabbr":"MO","locationdesc":"Missouri","data_value":"35.0"}
+,{"yearstart":"2018","locationabbr":"MT","locationdesc":"Montana","data_value":"26.9"}
+,{"yearstart":"2018","locationabbr":"NE","locationdesc":"Nebraska","data_value":"34.1"}
+,{"yearstart":"2018","locationabbr":"NV","locationdesc":"Nevada","data_value":"29.5"}
+,{"yearstart":"2018","locationabbr":"NH","locationdesc":"New Hampshire","data_value":"29.6"}
+,{"yearstart":"2018","locationabbr":"NJ","locationdesc":"New Jersey","data_value":"25.7"}
+,{"yearstart":"2018","locationabbr":"NM","locationdesc":"New Mexico","data_value":"32.3"}
+,{"yearstart":"2018","locationabbr":"NY","locationdesc":"New York","data_value":"27.6"}
+,{"yearstart":"2018","locationabbr":"NC","locationdesc":"North Carolina","data_value":"33.0"}
+,{"yearstart":"2018","locationabbr":"ND","locationdesc":"North Dakota","data_value":"35.1"}
+,{"yearstart":"2018","locationabbr":"OH","locationdesc":"Ohio","data_value":"34.0"}
+,{"yearstart":"2018","locationabbr":"OK","locationdesc":"Oklahoma","data_value":"34.8"}
+,{"yearstart":"2018","locationabbr":"OR","locationdesc":"Oregon","data_value":"29.9"}
+,{"yearstart":"2018","locationabbr":"PA","locationdesc":"Pennsylvania","data_value":"30.9"}
+,{"yearstart":"2018","locationabbr":"RI","locationdesc":"Rhode Island","data_value":"27.7"}
+,{"yearstart":"2018","locationabbr":"SC","locationdesc":"South Carolina","data_value":"34.3"}
+,{"yearstart":"2018","locationabbr":"SD","locationdesc":"South Dakota","data_value":"30.1"}
+,{"yearstart":"2018","locationabbr":"TN","locationdesc":"Tennessee","data_value":"34.4"}
+,{"yearstart":"2018","locationabbr":"TX","locationdesc":"Texas","data_value":"34.8"}
+,{"yearstart":"2018","locationabbr":"UT","locationdesc":"Utah","data_value":"27.8"}
+,{"yearstart":"2018","locationabbr":"VT","locationdesc":"Vermont","data_value":"27.5"}
+,{"yearstart":"2018","locationabbr":"VA","locationdesc":"Virginia","data_value":"30.4"}
+,{"yearstart":"2018","locationabbr":"WA","locationdesc":"Washington","data_value":"28.7"}
+,{"yearstart":"2018","locationabbr":"WV","locationdesc":"West Virginia","data_value":"39.5"}
+,{"yearstart":"2018","locationabbr":"WI","locationdesc":"Wisconsin","data_value":"32.0"}
+,{"yearstart":"2018","locationabbr":"WY","locationdesc":"Wyoming","data_value":"29.0"}
+,{"yearstart":"2018","locationabbr":"US","locationdesc":"National","data_value":"30.9"}
+,{"yearstart":"2018","locationabbr":"GU","locationdesc":"Guam","data_value":"29.8"}
+,{"yearstart":"2018","locationabbr":"PR","locationdesc":"Puerto Rico","data_value":"32.9"}
+,{"yearstart":"2018","locationabbr":"VI","locationdesc":"Virgin Islands"}
+,{"yearstart":"2019","locationabbr":"AL","locationdesc":"Alabama","data_value":"36.1"}
+,{"yearstart":"2019","locationabbr":"AK","locationdesc":"Alaska","data_value":"30.5"}
+,{"yearstart":"2019","locationabbr":"AZ","locationdesc":"Arizona","data_value":"31.4"}
+,{"yearstart":"2019","locationabbr":"AR","locationdesc":"Arkansas","data_value":"37.4"}
+,{"yearstart":"2019","locationabbr":"CA","locationdesc":"California","data_value":"26.2"}
+,{"yearstart":"2019","locationabbr":"CO","locationdesc":"Colorado","data_value":"23.8"}
+,{"yearstart":"2019","locationabbr":"CT","locationdesc":"Connecticut","data_value":"29.1"}
+,{"yearstart":"2019","locationabbr":"DE","locationdesc":"Delaware","data_value":"34.4"}
+,{"yearstart":"2019","locationabbr":"DC","locationdesc":"District of Columbia","data_value":"23.8"}
+,{"yearstart":"2019","locationabbr":"FL","locationdesc":"Florida","data_value":"27.0"}
+,{"yearstart":"2019","locationabbr":"GA","locationdesc":"Georgia","data_value":"33.1"}
+,{"yearstart":"2019","locationabbr":"HI","locationdesc":"Hawaii","data_value":"25.0"}
+,{"yearstart":"2019","locationabbr":"ID","locationdesc":"Idaho","data_value":"29.5"}
+,{"yearstart":"2019","locationabbr":"IL","locationdesc":"Illinois","data_value":"31.6"}
+,{"yearstart":"2019","locationabbr":"IN","locationdesc":"Indiana","data_value":"35.3"}
+,{"yearstart":"2019","locationabbr":"IA","locationdesc":"Iowa","data_value":"33.9"}
+,{"yearstart":"2019","locationabbr":"KS","locationdesc":"Kansas","data_value":"35.2"}
+,{"yearstart":"2019","locationabbr":"KY","locationdesc":"Kentucky","data_value":"36.5"}
+,{"yearstart":"2019","locationabbr":"LA","locationdesc":"Louisiana","data_value":"35.9"}
+,{"yearstart":"2019","locationabbr":"ME","locationdesc":"Maine","data_value":"31.7"}
+,{"yearstart":"2019","locationabbr":"MD","locationdesc":"Maryland","data_value":"32.3"}
+,{"yearstart":"2019","locationabbr":"MA","locationdesc":"Massachusetts","data_value":"25.2"}
+,{"yearstart":"2019","locationabbr":"MI","locationdesc":"Michigan","data_value":"36.0"}
+,{"yearstart":"2019","locationabbr":"MN","locationdesc":"Minnesota","data_value":"30.1"}
+,{"yearstart":"2019","locationabbr":"MS","locationdesc":"Mississippi","data_value":"40.8"}
+,{"yearstart":"2019","locationabbr":"MO","locationdesc":"Missouri","data_value":"34.8"}
+,{"yearstart":"2019","locationabbr":"MT","locationdesc":"Montana","data_value":"28.3"}
+,{"yearstart":"2019","locationabbr":"NE","locationdesc":"Nebraska","data_value":"34.1"}
+,{"yearstart":"2019","locationabbr":"NV","locationdesc":"Nevada","data_value":"30.6"}
+,{"yearstart":"2019","locationabbr":"NH","locationdesc":"New Hampshire","data_value":"31.8"}
+,{"yearstart":"2019","locationabbr":"NJ","locationdesc":"New Jersey"}
+,{"yearstart":"2019","locationabbr":"NM","locationdesc":"New Mexico","data_value":"31.7"}
+,{"yearstart":"2019","locationabbr":"NY","locationdesc":"New York","data_value":"27.1"}
+,{"yearstart":"2019","locationabbr":"NC","locationdesc":"North Carolina","data_value":"34.0"}
+,{"yearstart":"2019","locationabbr":"ND","locationdesc":"North Dakota","data_value":"34.8"}
+,{"yearstart":"2019","locationabbr":"OH","locationdesc":"Ohio","data_value":"34.8"}
+,{"yearstart":"2019","locationabbr":"OK","locationdesc":"Oklahoma","data_value":"36.8"}
+,{"yearstart":"2019","locationabbr":"OR","locationdesc":"Oregon","data_value":"29.0"}
+,{"yearstart":"2019","locationabbr":"PA","locationdesc":"Pennsylvania","data_value":"33.2"}
+,{"yearstart":"2019","locationabbr":"RI","locationdesc":"Rhode Island","data_value":"30.0"}
+,{"yearstart":"2019","locationabbr":"SC","locationdesc":"South Carolina","data_value":"35.4"}
+,{"yearstart":"2019","locationabbr":"SD","locationdesc":"South Dakota","data_value":"33.0"}
+,{"yearstart":"2019","locationabbr":"TN","locationdesc":"Tennessee","data_value":"36.5"}
+,{"yearstart":"2019","locationabbr":"TX","locationdesc":"Texas","data_value":"34.0"}
+,{"yearstart":"2019","locationabbr":"UT","locationdesc":"Utah","data_value":"29.2"}
+,{"yearstart":"2019","locationabbr":"VT","locationdesc":"Vermont","data_value":"26.6"}
+,{"yearstart":"2019","locationabbr":"VA","locationdesc":"Virginia","data_value":"31.9"}
+,{"yearstart":"2019","locationabbr":"WA","locationdesc":"Washington","data_value":"28.3"}
+,{"yearstart":"2019","locationabbr":"WV","locationdesc":"West Virginia","data_value":"39.7"}
+,{"yearstart":"2019","locationabbr":"WI","locationdesc":"Wisconsin","data_value":"34.2"}
+,{"yearstart":"2019","locationabbr":"WY","locationdesc":"Wyoming","data_value":"29.7"}
+,{"yearstart":"2019","locationabbr":"US","locationdesc":"National","data_value":"31.4"}
+,{"yearstart":"2019","locationabbr":"GU","locationdesc":"Guam","data_value":"33.6"}
+,{"yearstart":"2019","locationabbr":"PR","locationdesc":"Puerto Rico","data_value":"32.5"}
+,{"yearstart":"2019","locationabbr":"VI","locationdesc":"Virgin Islands"}
+,{"yearstart":"2020","locationabbr":"AL","locationdesc":"Alabama","data_value":"39.0"}
+,{"yearstart":"2020","locationabbr":"AK","locationdesc":"Alaska","data_value":"31.9"}
+,{"yearstart":"2020","locationabbr":"AZ","locationdesc":"Arizona","data_value":"30.9"}
+,{"yearstart":"2020","locationabbr":"AR","locationdesc":"Arkansas","data_value":"36.4"}
+,{"yearstart":"2020","locationabbr":"CA","locationdesc":"California","data_value":"30.3"}
+,{"yearstart":"2020","locationabbr":"CO","locationdesc":"Colorado","data_value":"24.2"}
+,{"yearstart":"2020","locationabbr":"CT","locationdesc":"Connecticut","data_value":"29.2"}
+,{"yearstart":"2020","locationabbr":"DE","locationdesc":"Delaware","data_value":"36.5"}
+,{"yearstart":"2020","locationabbr":"DC","locationdesc":"District of Columbia","data_value":"24.3"}
+,{"yearstart":"2020","locationabbr":"FL","locationdesc":"Florida","data_value":"28.4"}
+,{"yearstart":"2020","locationabbr":"GA","locationdesc":"Georgia","data_value":"34.3"}
+,{"yearstart":"2020","locationabbr":"HI","locationdesc":"Hawaii","data_value":"24.5"}
+,{"yearstart":"2020","locationabbr":"ID","locationdesc":"Idaho","data_value":"31.1"}
+,{"yearstart":"2020","locationabbr":"IL","locationdesc":"Illinois","data_value":"32.4"}
+,{"yearstart":"2020","locationabbr":"IN","locationdesc":"Indiana","data_value":"36.8"}
+,{"yearstart":"2020","locationabbr":"IA","locationdesc":"Iowa","data_value":"36.5"}
+,{"yearstart":"2020","locationabbr":"KS","locationdesc":"Kansas","data_value":"35.3"}
+,{"yearstart":"2020","locationabbr":"KY","locationdesc":"Kentucky","data_value":"36.6"}
+,{"yearstart":"2020","locationabbr":"LA","locationdesc":"Louisiana","data_value":"38.1"}
+,{"yearstart":"2020","locationabbr":"ME","locationdesc":"Maine","data_value":"31.0"}
+,{"yearstart":"2020","locationabbr":"MD","locationdesc":"Maryland","data_value":"31.0"}
+,{"yearstart":"2020","locationabbr":"MA","locationdesc":"Massachusetts","data_value":"24.4"}
+,{"yearstart":"2020","locationabbr":"MI","locationdesc":"Michigan","data_value":"35.2"}
+,{"yearstart":"2020","locationabbr":"MN","locationdesc":"Minnesota","data_value":"30.7"}
+,{"yearstart":"2020","locationabbr":"MS","locationdesc":"Mississippi","data_value":"39.7"}
+,{"yearstart":"2020","locationabbr":"MO","locationdesc":"Missouri","data_value":"34.0"}
+,{"yearstart":"2020","locationabbr":"MT","locationdesc":"Montana","data_value":"28.5"}
+,{"yearstart":"2020","locationabbr":"NE","locationdesc":"Nebraska","data_value":"34.0"}
+,{"yearstart":"2020","locationabbr":"NV","locationdesc":"Nevada","data_value":"28.7"}
+,{"yearstart":"2020","locationabbr":"NH","locationdesc":"New Hampshire","data_value":"29.9"}
+,{"yearstart":"2020","locationabbr":"NJ","locationdesc":"New Jersey","data_value":"27.7"}
+,{"yearstart":"2020","locationabbr":"NM","locationdesc":"New Mexico","data_value":"30.9"}
+,{"yearstart":"2020","locationabbr":"NY","locationdesc":"New York","data_value":"26.3"}
+,{"yearstart":"2020","locationabbr":"NC","locationdesc":"North Carolina","data_value":"33.6"}
+,{"yearstart":"2020","locationabbr":"ND","locationdesc":"North Dakota","data_value":"33.1"}
+,{"yearstart":"2020","locationabbr":"OH","locationdesc":"Ohio","data_value":"35.5"}
+,{"yearstart":"2020","locationabbr":"OK","locationdesc":"Oklahoma","data_value":"36.4"}
+,{"yearstart":"2020","locationabbr":"OR","locationdesc":"Oregon","data_value":"28.1"}
+,{"yearstart":"2020","locationabbr":"PA","locationdesc":"Pennsylvania","data_value":"31.5"}
+,{"yearstart":"2020","locationabbr":"RI","locationdesc":"Rhode Island","data_value":"30.1"}
+,{"yearstart":"2020","locationabbr":"SC","locationdesc":"South Carolina","data_value":"36.2"}
+,{"yearstart":"2020","locationabbr":"SD","locationdesc":"South Dakota","data_value":"33.2"}
+,{"yearstart":"2020","locationabbr":"TN","locationdesc":"Tennessee","data_value":"35.6"}
+,{"yearstart":"2020","locationabbr":"TX","locationdesc":"Texas","data_value":"35.8"}
+,{"yearstart":"2020","locationabbr":"UT","locationdesc":"Utah","data_value":"28.6"}
+,{"yearstart":"2020","locationabbr":"VT","locationdesc":"Vermont","data_value":"26.3"}
+,{"yearstart":"2020","locationabbr":"VA","locationdesc":"Virginia","data_value":"32.2"}
+,{"yearstart":"2020","locationabbr":"WA","locationdesc":"Washington","data_value":"28.0"}
+,{"yearstart":"2020","locationabbr":"WV","locationdesc":"West Virginia","data_value":"39.1"}
+,{"yearstart":"2020","locationabbr":"WI","locationdesc":"Wisconsin","data_value":"32.3"}
+,{"yearstart":"2020","locationabbr":"WY","locationdesc":"Wyoming","data_value":"30.7"}
+,{"yearstart":"2020","locationabbr":"US","locationdesc":"National","data_value":"31.9"}
+,{"yearstart":"2020","locationabbr":"GU","locationdesc":"Guam","data_value":"34.4"}
+,{"yearstart":"2020","locationabbr":"PR","locationdesc":"Puerto Rico","data_value":"31.4"}
+,{"yearstart":"2020","locationabbr":"VI","locationdesc":"Virgin Islands"}
+,{"yearstart":"2021","locationabbr":"AL","locationdesc":"Alabama","data_value":"39.9"}
+,{"yearstart":"2021","locationabbr":"AK","locationdesc":"Alaska","data_value":"33.5"}
+,{"yearstart":"2021","locationabbr":"AZ","locationdesc":"Arizona","data_value":"31.3"}
+,{"yearstart":"2021","locationabbr":"AR","locationdesc":"Arkansas","data_value":"38.7"}
+,{"yearstart":"2021","locationabbr":"CA","locationdesc":"California","data_value":"27.6"}
+,{"yearstart":"2021","locationabbr":"CO","locationdesc":"Colorado","data_value":"25.1"}
+,{"yearstart":"2021","locationabbr":"CT","locationdesc":"Connecticut","data_value":"30.4"}
+,{"yearstart":"2021","locationabbr":"DE","locationdesc":"Delaware","data_value":"33.9"}
+,{"yearstart":"2021","locationabbr":"DC","locationdesc":"District of Columbia","data_value":"24.7"}
+,{"yearstart":"2021","locationabbr":"FL","locationdesc":"Florida"}
+,{"yearstart":"2021","locationabbr":"GA","locationdesc":"Georgia","data_value":"33.9"}
+,{"yearstart":"2021","locationabbr":"HI","locationdesc":"Hawaii","data_value":"25.0"}
+,{"yearstart":"2021","locationabbr":"ID","locationdesc":"Idaho","data_value":"31.6"}
+,{"yearstart":"2021","locationabbr":"IL","locationdesc":"Illinois","data_value":"34.2"}
+,{"yearstart":"2021","locationabbr":"IN","locationdesc":"Indiana","data_value":"36.3"}
+,{"yearstart":"2021","locationabbr":"IA","locationdesc":"Iowa","data_value":"36.4"}
+,{"yearstart":"2021","locationabbr":"KS","locationdesc":"Kansas","data_value":"36.0"}
+,{"yearstart":"2021","locationabbr":"KY","locationdesc":"Kentucky","data_value":"40.3"}
+,{"yearstart":"2021","locationabbr":"LA","locationdesc":"Louisiana","data_value":"38.6"}
+,{"yearstart":"2021","locationabbr":"ME","locationdesc":"Maine","data_value":"31.9"}
+,{"yearstart":"2021","locationabbr":"MD","locationdesc":"Maryland","data_value":"34.3"}
+,{"yearstart":"2021","locationabbr":"MA","locationdesc":"Massachusetts","data_value":"27.4"}
+,{"yearstart":"2021","locationabbr":"MI","locationdesc":"Michigan","data_value":"34.4"}
+,{"yearstart":"2021","locationabbr":"MN","locationdesc":"Minnesota","data_value":"32.4"}
+,{"yearstart":"2021","locationabbr":"MS","locationdesc":"Mississippi","data_value":"39.1"}
+,{"yearstart":"2021","locationabbr":"MO","locationdesc":"Missouri","data_value":"37.3"}
+,{"yearstart":"2021","locationabbr":"MT","locationdesc":"Montana","data_value":"31.8"}
+,{"yearstart":"2021","locationabbr":"NE","locationdesc":"Nebraska","data_value":"35.9"}
+,{"yearstart":"2021","locationabbr":"NV","locationdesc":"Nevada","data_value":"31.3"}
+,{"yearstart":"2021","locationabbr":"NH","locationdesc":"New Hampshire","data_value":"30.6"}
+,{"yearstart":"2021","locationabbr":"NJ","locationdesc":"New Jersey","data_value":"28.2"}
+,{"yearstart":"2021","locationabbr":"NM","locationdesc":"New Mexico","data_value":"34.6"}
+,{"yearstart":"2021","locationabbr":"NY","locationdesc":"New York","data_value":"29.1"}
+,{"yearstart":"2021","locationabbr":"NC","locationdesc":"North Carolina","data_value":"36.0"}
+,{"yearstart":"2021","locationabbr":"ND","locationdesc":"North Dakota","data_value":"35.2"}
+,{"yearstart":"2021","locationabbr":"OH","locationdesc":"Ohio","data_value":"37.8"}
+,{"yearstart":"2021","locationabbr":"OK","locationdesc":"Oklahoma","data_value":"39.4"}
+,{"yearstart":"2021","locationabbr":"OR","locationdesc":"Oregon","data_value":"30.4"}
+,{"yearstart":"2021","locationabbr":"PA","locationdesc":"Pennsylvania","data_value":"33.3"}
+,{"yearstart":"2021","locationabbr":"RI","locationdesc":"Rhode Island","data_value":"30.1"}
+,{"yearstart":"2021","locationabbr":"SC","locationdesc":"South Carolina","data_value":"36.1"}
+,{"yearstart":"2021","locationabbr":"SD","locationdesc":"South Dakota","data_value":"38.4"}
+,{"yearstart":"2021","locationabbr":"TN","locationdesc":"Tennessee","data_value":"35.0"}
+,{"yearstart":"2021","locationabbr":"TX","locationdesc":"Texas","data_value":"36.1"}
+,{"yearstart":"2021","locationabbr":"UT","locationdesc":"Utah","data_value":"30.9"}
+,{"yearstart":"2021","locationabbr":"VT","locationdesc":"Vermont","data_value":"29.0"}
+,{"yearstart":"2021","locationabbr":"VA","locationdesc":"Virginia","data_value":"34.2"}
+,{"yearstart":"2021","locationabbr":"WA","locationdesc":"Washington","data_value":"28.8"}
+,{"yearstart":"2021","locationabbr":"WV","locationdesc":"West Virginia","data_value":"40.6"}
+,{"yearstart":"2021","locationabbr":"WI","locationdesc":"Wisconsin","data_value":"33.9"}
+,{"yearstart":"2021","locationabbr":"WY","locationdesc":"Wyoming","data_value":"32.0"}
+,{"yearstart":"2021","locationabbr":"US","locationdesc":"National","data_value":"33.0"}
+,{"yearstart":"2021","locationabbr":"GU","locationdesc":"Guam","data_value":"33.5"}
+,{"yearstart":"2021","locationabbr":"PR","locationdesc":"Puerto Rico","data_value":"36.0"}
+,{"yearstart":"2021","locationabbr":"VI","locationdesc":"Virgin Islands","data_value":"35.6"}
+,{"yearstart":"2022","locationabbr":"AL","locationdesc":"Alabama","data_value":"38.3"}
+,{"yearstart":"2022","locationabbr":"AK","locationdesc":"Alaska","data_value":"32.1"}
+,{"yearstart":"2022","locationabbr":"AZ","locationdesc":"Arizona","data_value":"33.2"}
+,{"yearstart":"2022","locationabbr":"AR","locationdesc":"Arkansas","data_value":"37.4"}
+,{"yearstart":"2022","locationabbr":"CA","locationdesc":"California","data_value":"28.1"}
+,{"yearstart":"2022","locationabbr":"CO","locationdesc":"Colorado","data_value":"25.0"}
+,{"yearstart":"2022","locationabbr":"CT","locationdesc":"Connecticut","data_value":"30.6"}
+,{"yearstart":"2022","locationabbr":"DE","locationdesc":"Delaware","data_value":"37.9"}
+,{"yearstart":"2022","locationabbr":"DC","locationdesc":"District of Columbia","data_value":"24.3"}
+,{"yearstart":"2022","locationabbr":"FL","locationdesc":"Florida","data_value":"31.6"}
+,{"yearstart":"2022","locationabbr":"GA","locationdesc":"Georgia","data_value":"37.0"}
+,{"yearstart":"2022","locationabbr":"HI","locationdesc":"Hawaii","data_value":"25.9"}
+,{"yearstart":"2022","locationabbr":"ID","locationdesc":"Idaho","data_value":"33.2"}
+,{"yearstart":"2022","locationabbr":"IL","locationdesc":"Illinois","data_value":"33.4"}
+,{"yearstart":"2022","locationabbr":"IN","locationdesc":"Indiana","data_value":"37.7"}
+,{"yearstart":"2022","locationabbr":"IA","locationdesc":"Iowa","data_value":"37.4"}
+,{"yearstart":"2022","locationabbr":"KS","locationdesc":"Kansas","data_value":"35.7"}
+,{"yearstart":"2022","locationabbr":"KY","locationdesc":"Kentucky","data_value":"37.7"}
+,{"yearstart":"2022","locationabbr":"LA","locationdesc":"Louisiana","data_value":"40.1"}
+,{"yearstart":"2022","locationabbr":"ME","locationdesc":"Maine","data_value":"33.1"}
+,{"yearstart":"2022","locationabbr":"MD","locationdesc":"Maryland","data_value":"33.2"}
+,{"yearstart":"2022","locationabbr":"MA","locationdesc":"Massachusetts","data_value":"27.2"}
+,{"yearstart":"2022","locationabbr":"MI","locationdesc":"Michigan","data_value":"34.5"}
+,{"yearstart":"2022","locationabbr":"MN","locationdesc":"Minnesota","data_value":"33.6"}
+,{"yearstart":"2022","locationabbr":"MS","locationdesc":"Mississippi","data_value":"39.5"}
+,{"yearstart":"2022","locationabbr":"MO","locationdesc":"Missouri","data_value":"36.4"}
+,{"yearstart":"2022","locationabbr":"MT","locationdesc":"Montana","data_value":"30.5"}
+,{"yearstart":"2022","locationabbr":"NE","locationdesc":"Nebraska","data_value":"35.3"}
+,{"yearstart":"2022","locationabbr":"NV","locationdesc":"Nevada","data_value":"33.5"}
+,{"yearstart":"2022","locationabbr":"NH","locationdesc":"New Hampshire","data_value":"30.2"}
+,{"yearstart":"2022","locationabbr":"NJ","locationdesc":"New Jersey","data_value":"29.1"}
+,{"yearstart":"2022","locationabbr":"NM","locationdesc":"New Mexico","data_value":"32.4"}
+,{"yearstart":"2022","locationabbr":"NY","locationdesc":"New York","data_value":"30.1"}
+,{"yearstart":"2022","locationabbr":"NC","locationdesc":"North Carolina","data_value":"34.1"}
+,{"yearstart":"2022","locationabbr":"ND","locationdesc":"North Dakota","data_value":"35.4"}
+,{"yearstart":"2022","locationabbr":"OH","locationdesc":"Ohio","data_value":"38.1"}
+,{"yearstart":"2022","locationabbr":"OK","locationdesc":"Oklahoma","data_value":"40.0"}
+,{"yearstart":"2022","locationabbr":"OR","locationdesc":"Oregon","data_value":"30.9"}
+,{"yearstart":"2022","locationabbr":"PA","locationdesc":"Pennsylvania","data_value":"33.4"}
+,{"yearstart":"2022","locationabbr":"RI","locationdesc":"Rhode Island","data_value":"30.8"}
+,{"yearstart":"2022","locationabbr":"SC","locationdesc":"South Carolina","data_value":"35.0"}
+,{"yearstart":"2022","locationabbr":"SD","locationdesc":"South Dakota","data_value":"36.8"}
+,{"yearstart":"2022","locationabbr":"TN","locationdesc":"Tennessee","data_value":"38.9"}
+,{"yearstart":"2022","locationabbr":"TX","locationdesc":"Texas","data_value":"35.5"}
+,{"yearstart":"2022","locationabbr":"UT","locationdesc":"Utah","data_value":"31.1"}
+,{"yearstart":"2022","locationabbr":"VT","locationdesc":"Vermont","data_value":"26.8"}
+,{"yearstart":"2022","locationabbr":"VA","locationdesc":"Virginia","data_value":"35.2"}
+,{"yearstart":"2022","locationabbr":"WA","locationdesc":"Washington","data_value":"31.7"}
+,{"yearstart":"2022","locationabbr":"WV","locationdesc":"West Virginia","data_value":"41.0"}
+,{"yearstart":"2022","locationabbr":"WI","locationdesc":"Wisconsin","data_value":"37.7"}
+,{"yearstart":"2022","locationabbr":"WY","locationdesc":"Wyoming","data_value":"34.3"}
+,{"yearstart":"2022","locationabbr":"US","locationdesc":"National","data_value":"33.3"}
+,{"yearstart":"2022","locationabbr":"GU","locationdesc":"Guam","data_value":"32.7"}
+,{"yearstart":"2022","locationabbr":"PR","locationdesc":"Puerto Rico","data_value":"34.1"}
+,{"yearstart":"2022","locationabbr":"VI","locationdesc":"Virgin Islands","data_value":"32.1"}
+,{"yearstart":"2023","locationabbr":"AL","locationdesc":"Alabama","data_value":"39.2"}
+,{"yearstart":"2023","locationabbr":"AK","locationdesc":"Alaska","data_value":"35.2"}
+,{"yearstart":"2023","locationabbr":"AZ","locationdesc":"Arizona","data_value":"31.9"}
+,{"yearstart":"2023","locationabbr":"AR","locationdesc":"Arkansas","data_value":"40.0"}
+,{"yearstart":"2023","locationabbr":"CA","locationdesc":"California","data_value":"27.7"}
+,{"yearstart":"2023","locationabbr":"CO","locationdesc":"Colorado","data_value":"24.9"}
+,{"yearstart":"2023","locationabbr":"CT","locationdesc":"Connecticut","data_value":"29.4"}
+,{"yearstart":"2023","locationabbr":"DE","locationdesc":"Delaware","data_value":"35.7"}
+,{"yearstart":"2023","locationabbr":"DC","locationdesc":"District of Columbia","data_value":"23.5"}
+,{"yearstart":"2023","locationabbr":"FL","locationdesc":"Florida","data_value":"30.1"}
+,{"yearstart":"2023","locationabbr":"GA","locationdesc":"Georgia","data_value":"35.0"}
+,{"yearstart":"2023","locationabbr":"HI","locationdesc":"Hawaii","data_value":"26.1"}
+,{"yearstart":"2023","locationabbr":"ID","locationdesc":"Idaho","data_value":"31.0"}
+,{"yearstart":"2023","locationabbr":"IL","locationdesc":"Illinois","data_value":"36.0"}
+,{"yearstart":"2023","locationabbr":"IN","locationdesc":"Indiana","data_value":"37.8"}
+,{"yearstart":"2023","locationabbr":"IA","locationdesc":"Iowa","data_value":"37.8"}
+,{"yearstart":"2023","locationabbr":"KS","locationdesc":"Kansas","data_value":"35.9"}
+,{"yearstart":"2023","locationabbr":"KY","locationdesc":"Kentucky"}
+,{"yearstart":"2023","locationabbr":"LA","locationdesc":"Louisiana","data_value":"39.9"}
+,{"yearstart":"2023","locationabbr":"ME","locationdesc":"Maine","data_value":"32.6"}
+,{"yearstart":"2023","locationabbr":"MD","locationdesc":"Maryland","data_value":"34.1"}
+,{"yearstart":"2023","locationabbr":"MA","locationdesc":"Massachusetts","data_value":"27.4"}
+,{"yearstart":"2023","locationabbr":"MI","locationdesc":"Michigan","data_value":"35.4"}
+,{"yearstart":"2023","locationabbr":"MN","locationdesc":"Minnesota","data_value":"33.3"}
+,{"yearstart":"2023","locationabbr":"MS","locationdesc":"Mississippi","data_value":"40.1"}
+,{"yearstart":"2023","locationabbr":"MO","locationdesc":"Missouri","data_value":"35.3"}
+,{"yearstart":"2023","locationabbr":"MT","locationdesc":"Montana","data_value":"30.5"}
+,{"yearstart":"2023","locationabbr":"NE","locationdesc":"Nebraska","data_value":"36.6"}
+,{"yearstart":"2023","locationabbr":"NV","locationdesc":"Nevada","data_value":"30.8"}
+,{"yearstart":"2023","locationabbr":"NH","locationdesc":"New Hampshire","data_value":"32.8"}
+,{"yearstart":"2023","locationabbr":"NJ","locationdesc":"New Jersey","data_value":"28.9"}
+,{"yearstart":"2023","locationabbr":"NM","locationdesc":"New Mexico","data_value":"35.3"}
+,{"yearstart":"2023","locationabbr":"NY","locationdesc":"New York","data_value":"28.0"}
+,{"yearstart":"2023","locationabbr":"NC","locationdesc":"North Carolina","data_value":"34.0"}
+,{"yearstart":"2023","locationabbr":"ND","locationdesc":"North Dakota","data_value":"35.6"}
+,{"yearstart":"2023","locationabbr":"OH","locationdesc":"Ohio","data_value":"36.4"}
+,{"yearstart":"2023","locationabbr":"OK","locationdesc":"Oklahoma","data_value":"38.7"}
+,{"yearstart":"2023","locationabbr":"OR","locationdesc":"Oregon","data_value":"33.6"}
+,{"yearstart":"2023","locationabbr":"PA","locationdesc":"Pennsylvania"}
+,{"yearstart":"2023","locationabbr":"RI","locationdesc":"Rhode Island","data_value":"31.6"}
+,{"yearstart":"2023","locationabbr":"SC","locationdesc":"South Carolina","data_value":"36.0"}
+,{"yearstart":"2023","locationabbr":"SD","locationdesc":"South Dakota","data_value":"36.0"}
+,{"yearstart":"2023","locationabbr":"TN","locationdesc":"Tennessee","data_value":"37.6"}
+,{"yearstart":"2023","locationabbr":"TX","locationdesc":"Texas","data_value":"34.4"}
+,{"yearstart":"2023","locationabbr":"UT","locationdesc":"Utah","data_value":"30.2"}
+,{"yearstart":"2023","locationabbr":"VT","locationdesc":"Vermont","data_value":"28.8"}
+,{"yearstart":"2023","locationabbr":"VA","locationdesc":"Virginia","data_value":"34.3"}
+,{"yearstart":"2023","locationabbr":"WA","locationdesc":"Washington","data_value":"30.6"}
+,{"yearstart":"2023","locationabbr":"WV","locationdesc":"West Virginia","data_value":"41.2"}
+,{"yearstart":"2023","locationabbr":"WI","locationdesc":"Wisconsin","data_value":"35.9"}
+,{"yearstart":"2023","locationabbr":"WY","locationdesc":"Wyoming","data_value":"33.3"}
+,{"yearstart":"2023","locationabbr":"US","locationdesc":"National","data_value":"32.8"}
+,{"yearstart":"2023","locationabbr":"GU","locationdesc":"Guam","data_value":"35.4"}
+,{"yearstart":"2023","locationabbr":"PR","locationdesc":"Puerto Rico","data_value":"36.0"}
+,{"yearstart":"2023","locationabbr":"VI","locationdesc":"Virgin Islands","data_value":"32.1"}
+,{"yearstart":"2024","locationabbr":"AL","locationdesc":"Alabama","data_value":"38.9"}
+,{"yearstart":"2024","locationabbr":"AK","locationdesc":"Alaska","data_value":"34.0"}
+,{"yearstart":"2024","locationabbr":"AZ","locationdesc":"Arizona","data_value":"33.3"}
+,{"yearstart":"2024","locationabbr":"AR","locationdesc":"Arkansas","data_value":"38.9"}
+,{"yearstart":"2024","locationabbr":"CA","locationdesc":"California","data_value":"29.1"}
+,{"yearstart":"2024","locationabbr":"CO","locationdesc":"Colorado","data_value":"25.0"}
+,{"yearstart":"2024","locationabbr":"CT","locationdesc":"Connecticut","data_value":"32.0"}
+,{"yearstart":"2024","locationabbr":"DE","locationdesc":"Delaware","data_value":"36.6"}
+,{"yearstart":"2024","locationabbr":"DC","locationdesc":"District of Columbia","data_value":"25.5"}
+,{"yearstart":"2024","locationabbr":"FL","locationdesc":"Florida","data_value":"29.6"}
+,{"yearstart":"2024","locationabbr":"GA","locationdesc":"Georgia","data_value":"35.4"}
+,{"yearstart":"2024","locationabbr":"GU","locationdesc":"Guam","data_value":"40.2"}
+,{"yearstart":"2024","locationabbr":"HI","locationdesc":"Hawaii","data_value":"27.0"}
+,{"yearstart":"2024","locationabbr":"ID","locationdesc":"Idaho","data_value":"32.7"}
+,{"yearstart":"2024","locationabbr":"IL","locationdesc":"Illinois","data_value":"34.2"}
+,{"yearstart":"2024","locationabbr":"IN","locationdesc":"Indiana","data_value":"38.4"}
+,{"yearstart":"2024","locationabbr":"IA","locationdesc":"Iowa","data_value":"36.6"}
+,{"yearstart":"2024","locationabbr":"KS","locationdesc":"Kansas","data_value":"37.6"}
+,{"yearstart":"2024","locationabbr":"KY","locationdesc":"Kentucky","data_value":"37.2"}
+,{"yearstart":"2024","locationabbr":"LA","locationdesc":"Louisiana","data_value":"39.2"}
+,{"yearstart":"2024","locationabbr":"ME","locationdesc":"Maine","data_value":"33.2"}
+,{"yearstart":"2024","locationabbr":"MD","locationdesc":"Maryland","data_value":"32.7"}
+,{"yearstart":"2024","locationabbr":"MA","locationdesc":"Massachusetts","data_value":"27.0"}
+,{"yearstart":"2024","locationabbr":"MI","locationdesc":"Michigan","data_value":"36.1"}
+,{"yearstart":"2024","locationabbr":"MN","locationdesc":"Minnesota","data_value":"32.3"}
+,{"yearstart":"2024","locationabbr":"MS","locationdesc":"Mississippi","data_value":"40.4"}
+,{"yearstart":"2024","locationabbr":"MO","locationdesc":"Missouri","data_value":"34.6"}
+,{"yearstart":"2024","locationabbr":"MT","locationdesc":"Montana","data_value":"31.0"}
+,{"yearstart":"2024","locationabbr":"US","locationdesc":"National","data_value":"33.1"}
+,{"yearstart":"2024","locationabbr":"NE","locationdesc":"Nebraska","data_value":"37.6"}
+,{"yearstart":"2024","locationabbr":"NV","locationdesc":"Nevada","data_value":"34.2"}
+,{"yearstart":"2024","locationabbr":"NH","locationdesc":"New Hampshire","data_value":"31.1"}
+,{"yearstart":"2024","locationabbr":"NJ","locationdesc":"New Jersey","data_value":"27.7"}
+,{"yearstart":"2024","locationabbr":"NM","locationdesc":"New Mexico","data_value":"34.5"}
+,{"yearstart":"2024","locationabbr":"NY","locationdesc":"New York","data_value":"29.5"}
+,{"yearstart":"2024","locationabbr":"NC","locationdesc":"North Carolina","data_value":"34.5"}
+,{"yearstart":"2024","locationabbr":"ND","locationdesc":"North Dakota","data_value":"36.8"}
+,{"yearstart":"2024","locationabbr":"OH","locationdesc":"Ohio","data_value":"36.9"}
+,{"yearstart":"2024","locationabbr":"OK","locationdesc":"Oklahoma","data_value":"36.8"}
+,{"yearstart":"2024","locationabbr":"OR","locationdesc":"Oregon","data_value":"33.5"}
+,{"yearstart":"2024","locationabbr":"PA","locationdesc":"Pennsylvania","data_value":"34.2"}
+,{"yearstart":"2024","locationabbr":"PR","locationdesc":"Puerto Rico","data_value":"36.2"}
+,{"yearstart":"2024","locationabbr":"RI","locationdesc":"Rhode Island","data_value":"31.1"}
+,{"yearstart":"2024","locationabbr":"SC","locationdesc":"South Carolina","data_value":"34.6"}
+,{"yearstart":"2024","locationabbr":"SD","locationdesc":"South Dakota","data_value":"37.0"}
+,{"yearstart":"2024","locationabbr":"TX","locationdesc":"Texas","data_value":"35.6"}
+,{"yearstart":"2024","locationabbr":"UT","locationdesc":"Utah","data_value":"31.0"}
+,{"yearstart":"2024","locationabbr":"VT","locationdesc":"Vermont","data_value":"29.0"}
+,{"yearstart":"2024","locationabbr":"VI","locationdesc":"Virgin Islands","data_value":"37.7"}
+,{"yearstart":"2024","locationabbr":"VA","locationdesc":"Virginia","data_value":"32.3"}
+,{"yearstart":"2024","locationabbr":"WA","locationdesc":"Washington","data_value":"31.5"}
+,{"yearstart":"2024","locationabbr":"WV","locationdesc":"West Virginia","data_value":"41.4"}
+,{"yearstart":"2024","locationabbr":"WI","locationdesc":"Wisconsin","data_value":"37.4"}
+,{"yearstart":"2024","locationabbr":"WY","locationdesc":"Wyoming","data_value":"32.5"}
+,{"yearstart":"2024","locationabbr":"TN","locationdesc":"Tennessee"}]
