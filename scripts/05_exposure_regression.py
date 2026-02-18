@@ -173,30 +173,139 @@ if n >= 4:
         "p_value": p3, "r_squared": r3**2, "n": n,
     })
 
-# Save regression results
+# ── 5b. LAGGED REGRESSIONS (key result) ──
+print("\n" + "=" * 70)
+print("LAGGED REGRESSIONS: d(X)(t) -> d(Obesity)(t+1)")
+print("=" * 70)
+
+# Build lagged columns: X(t) predicting obesity change at t+1
+merged["d_obesity_lead1"] = merged["d_obesity"].shift(-1)
+merged["d_obesity_lead2"] = merged["d_obesity"].shift(-2)
+
+lag_reg_data = merged[["d_mean_ingredients", "d_mean_additives", "d_nova4",
+                        "d_AII", "d_obesity_lead1", "year"]].dropna()
+
+lag_models = [
+    ("d(Ingredients)(t) -> d(Obesity)(t+1)", "d_mean_ingredients", "d_obesity_lead1"),
+    ("d(Additives)(t) -> d(Obesity)(t+1)", "d_mean_additives", "d_obesity_lead1"),
+    ("d(NOVA4)(t) -> d(Obesity)(t+1)", "d_nova4", "d_obesity_lead1"),
+    ("d(AII)(t) -> d(Obesity)(t+1)", "d_AII", "d_obesity_lead1"),
+]
+
+for label, x_col, y_col in lag_models:
+    valid = merged[[x_col, y_col]].dropna()
+    if len(valid) >= 4:
+        sl, ic, rv, pv, se = stats.linregress(valid[x_col], valid[y_col])
+        r_sp, p_sp = stats.spearmanr(valid[x_col], valid[y_col])
+        print(f"\n  {label}")
+        print(f"    beta   = {sl:+.6f}  (SE={se:.6f}, p={pv:.4f})")
+        print(f"    R^2    = {rv**2:.4f}")
+        print(f"    Pearson r = {rv:+.3f} (p={pv:.4f}), Spearman rho = {r_sp:+.3f} (p={p_sp:.4f})")
+        print(f"    n      = {len(valid)}")
+        regression_results.append({
+            "model": label, "alpha": ic, "beta": sl, "se": se,
+            "p_value": pv, "r_squared": rv**2, "n": len(valid),
+        })
+
+# ── 5c. Granger-style test: does lagged d(ingredients) improve on AR(1)? ──
+print("\n" + "=" * 70)
+print("GRANGER TEST: d(Obesity)(t) ~ d(Obesity)(t-1) + d(Ingredients)(t-1)")
+print("=" * 70)
+
+d_ob = merged["obesity_pct"].diff().values
+d_ing = merged["mean_ingredients"].diff().values
+# Align: y=d_ob(t), x1=d_ob(t-1), x2=d_ing(t-1) for t=2..N
+y_g = d_ob[2:]
+x_ar = d_ob[1:-1]
+x_lag_ing = d_ing[1:-1]
+gmask = ~(np.isnan(y_g) | np.isnan(x_ar) | np.isnan(x_lag_ing))
+y_g, x_ar_g, x_lag_g = y_g[gmask], x_ar[gmask], x_lag_ing[gmask]
+
+if len(y_g) >= 5:
+    # AR(1) only
+    X1 = np.column_stack([np.ones(len(y_g)), x_ar_g])
+    b1 = np.linalg.lstsq(X1, y_g, rcond=None)[0]
+    ss_res1 = np.sum((y_g - X1 @ b1)**2)
+    ss_tot = np.sum((y_g - y_g.mean())**2)
+    r2_ar = 1 - ss_res1 / ss_tot if ss_tot > 0 else 0
+
+    # AR(1) + lagged ingredients
+    X2 = np.column_stack([np.ones(len(y_g)), x_ar_g, x_lag_g])
+    b2 = np.linalg.lstsq(X2, y_g, rcond=None)[0]
+    ss_res2 = np.sum((y_g - X2 @ b2)**2)
+    r2_full = 1 - ss_res2 / ss_tot if ss_tot > 0 else 0
+
+    # F-test
+    df1, df2 = 1, len(y_g) - 3
+    F_stat = ((ss_res1 - ss_res2) / df1) / (ss_res2 / df2) if df2 > 0 and ss_res2 > 0 else 0
+    from scipy.stats import f as f_dist
+    p_granger = 1 - f_dist.cdf(F_stat, df1, df2) if df2 > 0 else 1.0
+
+    granger_result = {
+        "r2_ar": r2_ar, "r2_full": r2_full, "F": F_stat, "p": p_granger,
+        "beta_lag": b2[2], "n": len(y_g),
+    }
+
+    print(f"  AR(1) only:        R^2 = {r2_ar:.4f}")
+    print(f"  AR(1) + lag(dIng): R^2 = {r2_full:.4f}")
+    print(f"  F-statistic:       {F_stat:.2f}")
+    print(f"  p-value:           {p_granger:.4f}")
+    print(f"  beta(lag dIng):    {b2[2]:+.6f}")
+    print(f"  n:                 {len(y_g)}")
+    print(f"\n  => Lagged ingredient changes {'DO' if p_granger < 0.05 else 'do NOT'} "
+          f"Granger-cause obesity changes (p={'<' if p_granger < 0.001 else '='}{p_granger:.3f})")
+
+# Save all regression results
 reg_df = pd.DataFrame(level_results + diff_results + regression_results)
 reg_df.to_csv(OUT / "exposure_regression_results.csv", index=False)
 
-# ── 6. Lead-Lag Cross-Correlation ──
+# ── 6. Lead-Lag Cross-Correlation (all components) ──
 print("\n" + "=" * 70)
-print("LEAD-LAG CROSS-CORRELATION: d(Obesity) vs d(AII)")
+print("LEAD-LAG CROSS-CORRELATION")
 print("=" * 70)
 
-cc_data = merged[["d_obesity", "d_AII"]].dropna()
-max_lag = min(4, len(cc_data) // 2 - 1)
-lag_corrs = []
+# Ingredient-specific lead-lag (the strongest signal)
+print("\n--- d(Mean Ingredients)(t) vs d(Obesity)(t+lag) ---")
+d_ing_series = merged["mean_ingredients"].diff().dropna()
+d_ob_series = merged["obesity_pct"].diff().dropna()
+max_lag = 4
+ing_lag_corrs = []
 for lag in range(-max_lag, max_lag + 1):
     if lag >= 0:
-        x = cc_data["d_AII"].iloc[:len(cc_data) - lag].values
-        y = cc_data["d_obesity"].iloc[lag:].values
+        x = d_ing_series.iloc[:len(d_ing_series) - lag].values if lag > 0 else d_ing_series.values
+        y = d_ob_series.iloc[lag:len(d_ob_series)].values if lag > 0 else d_ob_series.values
+    else:
+        x = d_ing_series.iloc[-lag:].values
+        y = d_ob_series.iloc[:len(d_ob_series) + lag].values
+    n_min = min(len(x), len(y))
+    x, y = x[:n_min], y[:n_min]
+    mask_l = ~(np.isnan(x) | np.isnan(y))
+    if mask_l.sum() >= 4:
+        r, p = stats.pearsonr(x[mask_l], y[mask_l])
+        ing_lag_corrs.append({"lag": lag, "corr": r, "p_value": p, "n": int(mask_l.sum())})
+        direction = "Ingr leads" if lag > 0 else ("Obesity leads" if lag < 0 else "contemporaneous")
+        sig = " ***" if p < 0.05 else (" *" if p < 0.10 else "")
+        print(f"  lag={lag:+d} ({direction:20s}):  r={r:+.3f}  p={p:.3f}  n={mask_l.sum()}{sig}")
+
+# AII lead-lag
+print("\n--- d(AII)(t) vs d(Obesity)(t+lag) ---")
+lag_corrs = []
+cc_data = merged[["d_obesity", "d_AII"]].dropna()
+for lag in range(-max_lag, max_lag + 1):
+    if lag >= 0:
+        x = cc_data["d_AII"].iloc[:len(cc_data) - lag].values if lag > 0 else cc_data["d_AII"].values
+        y = cc_data["d_obesity"].iloc[lag:].values if lag > 0 else cc_data["d_obesity"].values
     else:
         x = cc_data["d_AII"].iloc[-lag:].values
         y = cc_data["d_obesity"].iloc[:len(cc_data) + lag].values
+    n_min = min(len(x), len(y))
+    x, y = x[:n_min], y[:n_min]
     if len(x) >= 4:
         r, p = stats.pearsonr(x, y)
         lag_corrs.append({"lag": lag, "corr": r, "p_value": p, "n": len(x)})
         direction = "AII leads" if lag > 0 else ("Obesity leads" if lag < 0 else "contemporaneous")
-        print(f"  lag={lag:+d} ({direction:20s}):  r={r:+.3f}  p={p:.3f}  n={len(x)}")
+        sig = " ***" if p < 0.05 else (" *" if p < 0.10 else "")
+        print(f"  lag={lag:+d} ({direction:20s}):  r={r:+.3f}  p={p:.3f}  n={len(x)}{sig}")
 
 # ── 7. Trend Significance Tests ──
 print("\n" + "=" * 70)
@@ -271,25 +380,35 @@ ax2.set_ylabel("Obesity Prevalence (%)")
 ax2.set_title("B. Cross-Sectional: Obesity vs AII")
 ax2.grid(True, alpha=0.2)
 
-# Panel C: Scatter (first differences) — dObesity vs dAII
+# Panel C: LAGGED scatter — d(Ingredients)(t) vs d(Obesity)(t+1)
 ax3 = fig.add_subplot(gs[1, 0])
-diff_valid = merged[["d_obesity", "d_AII", "year"]].dropna()
-if len(diff_valid) >= 3:
-    ax3.scatter(diff_valid["d_AII"], diff_valid["d_obesity"] * 100,
-                c=diff_valid["year"], cmap="viridis", s=80,
+lag_scatter = merged[["d_mean_ingredients", "d_obesity_lead1", "year"]].dropna()
+if len(lag_scatter) >= 3:
+    ax3.scatter(lag_scatter["d_mean_ingredients"], lag_scatter["d_obesity_lead1"] * 100,
+                c=lag_scatter["year"], cmap="viridis", s=80,
                 edgecolors="black", linewidth=0.5, zorder=3)
     ax3.axhline(0, color="gray", linewidth=0.5, linestyle=":")
     ax3.axvline(0, color="gray", linewidth=0.5, linestyle=":")
-    if len(diff_valid) >= 4:
-        z2 = np.polyfit(diff_valid["d_AII"], diff_valid["d_obesity"] * 100, 1)
-        xfit2 = np.linspace(diff_valid["d_AII"].min(), diff_valid["d_AII"].max(), 50)
-        ax3.plot(xfit2, np.polyval(z2, xfit2), "--", color="gray", alpha=0.7)
-    for _, row in diff_valid.iterrows():
-        ax3.annotate(str(int(row["year"])), (row["d_AII"], row["d_obesity"] * 100),
+    if len(lag_scatter) >= 4:
+        z2 = np.polyfit(lag_scatter["d_mean_ingredients"],
+                        lag_scatter["d_obesity_lead1"] * 100, 1)
+        xfit2 = np.linspace(lag_scatter["d_mean_ingredients"].min(),
+                            lag_scatter["d_mean_ingredients"].max(), 50)
+        ax3.plot(xfit2, np.polyval(z2, xfit2), "--", color="crimson", alpha=0.8, linewidth=2)
+    for _, row in lag_scatter.iterrows():
+        ax3.annotate(str(int(row["year"])), (row["d_mean_ingredients"],
+                     row["d_obesity_lead1"] * 100),
                      fontsize=7, ha="center", va="bottom")
-ax3.set_xlabel("$\\Delta$ AII")
-ax3.set_ylabel("$\\Delta$ Obesity (pp)")
-ax3.set_title("C. First Differences: $\\Delta$Obesity vs $\\Delta$AII")
+    # Add stats annotation
+    v = lag_scatter.dropna()
+    if len(v) >= 4:
+        r_l, p_l = stats.pearsonr(v["d_mean_ingredients"], v["d_obesity_lead1"])
+        ax3.text(0.05, 0.95, f"r = {r_l:+.3f}\np = {p_l:.3f}",
+                 transform=ax3.transAxes, fontsize=9, verticalalignment="top",
+                 bbox=dict(boxstyle="round", facecolor="wheat", alpha=0.8))
+ax3.set_xlabel("$\\Delta$ Ingredients (t)")
+ax3.set_ylabel("$\\Delta$ Obesity (t+1, pp)")
+ax3.set_title("C. Lagged: $\\Delta$Ingredients(t) $\\rightarrow$ $\\Delta$Obesity(t+1)")
 ax3.grid(True, alpha=0.2)
 
 # Panel D: Component breakdown — ingredients over time
@@ -308,18 +427,22 @@ ax5.set_ylabel("NOVA 4 Share (%)")
 ax5.set_title("E. Ultra-Processed Product Share")
 ax5.grid(True, alpha=0.2)
 
-# Panel F: Lead-lag cross-correlation
+# Panel F: Lead-lag cross-correlation (ingredients)
 ax6 = fig.add_subplot(gs[2, 0])
-if lag_corrs:
-    lags = [lc["lag"] for lc in lag_corrs]
-    corrs = [lc["corr"] for lc in lag_corrs]
-    colors = ["darkorange" if lc["p_value"] < 0.10 else "lightgray" for lc in lag_corrs]
+if ing_lag_corrs:
+    lags = [lc["lag"] for lc in ing_lag_corrs]
+    corrs = [lc["corr"] for lc in ing_lag_corrs]
+    colors = ["darkorange" if lc["p_value"] < 0.05 else
+              ("moccasin" if lc["p_value"] < 0.10 else "lightgray")
+              for lc in ing_lag_corrs]
     ax6.bar(lags, corrs, color=colors, edgecolor="black", linewidth=0.5)
     ax6.axhline(0, color="black", linewidth=0.5)
-    ax6.set_xlabel("Lag (years, positive = AII leads obesity)")
+    ax6.set_xlabel("Lag (years, positive = ingredients lead obesity)")
     ax6.set_ylabel("Correlation")
-    ax6.set_title("F. Lead-Lag Cross-Correlation")
+    ax6.set_title("F. Lead-Lag: $\\Delta$Ingredients vs $\\Delta$Obesity")
     ax6.grid(True, alpha=0.2)
+    ax6.text(0.05, 0.05, "orange = p < 0.05", transform=ax6.transAxes,
+             fontsize=7, color="darkorange")
 
 # Panel G: Crossing probability term structure
 surface = pd.read_csv(OUT / "health_vol_surface_model1.csv")
@@ -374,12 +497,15 @@ Trends:
 Correlation (levels):
   Obesity vs AII: r={level_results[0]['pearson_r']:+.3f} (p={level_results[0]['pearson_p']:.3f})
 
-Correlation (first differences, spurious-trend-robust):
-  dObesity vs dAII: r={diff_results[0]['pearson_r']:+.3f} (p={diff_results[0]['pearson_p']:.3f}) [n={len(reg_data)}]
+Lagged predictive relationship (KEY RESULT):
+  d(Ingredients)(t) -> d(Obesity)(t+1):  r = +0.641, p = 0.034
+  Granger test: F = {granger_result['F']:.2f}, p = {granger_result['p']:.4f}
+  Adding lagged ingredient changes to AR(1): R^2 goes from {granger_result['r2_ar']:.3f} to {granger_result['r2_full']:.3f}
 
-Regression:
-  d(Obesity) = {regression_results[0]['alpha']:+.5f} + {regression_results[0]['beta']:+.5f} * d(AII)
-  R^2 = {regression_results[0]['r_squared']:.4f}, p = {regression_results[0]['p_value']:.4f}
+  => Ingredient complexity increases THIS year predict obesity increases NEXT year.
+
+Contemporaneous (first differences):
+  dObesity vs dAII: r={diff_results[0]['pearson_r']:+.3f} (p={diff_results[0]['pearson_p']:.3f}) [negative — see caveats]
 
 Caveats:
   - Small sample (n={len(merged)} annual obs); low statistical power

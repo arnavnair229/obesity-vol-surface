@@ -150,18 +150,35 @@ def process_data(df):
 
 
 def plot_trends(yearly):
-    """Generate additive trend plots."""
-    yearly = yearly[yearly["n_products"] >= 20].copy()
+    """Generate additive trend plots with sample-size annotations."""
+    from scipy import stats as sp_stats
+
+    yearly = yearly[yearly["n_products"] >= 5].copy()
 
     if len(yearly) < 3:
-        print("Not enough yearly data for meaningful plots (need >= 3 years with >= 20 products)")
+        print("Not enough yearly data for meaningful plots (need >= 3 years with >= 5 products)")
         return
 
     fig, axes = plt.subplots(1, 3, figsize=(16, 5))
 
+    # Marker size proportional to sample size (min 30, max 150)
+    sizes = np.clip(yearly["n_products"].values * 1.5, 30, 150)
+    # Alpha: dim years with < 15 products
+    alphas = np.where(yearly["n_products"].values >= 15, 1.0, 0.45)
+
     # Plot 1: Additive count
     ax1 = axes[0]
-    ax1.plot(yearly["year"], yearly["mean_additives"], "o-", color="darkorange", linewidth=2)
+    for i, (_, row) in enumerate(yearly.iterrows()):
+        ax1.plot(row["year"], row["mean_additives"], "o", color="darkorange",
+                 markersize=sizes[i] ** 0.5 * 2, alpha=alphas[i])
+    ax1.plot(yearly["year"], yearly["mean_additives"], "-", color="darkorange",
+             linewidth=1.5, alpha=0.5)
+    sl, ic, rv, pv, se = sp_stats.linregress(yearly["year"], yearly["mean_additives"])
+    xfit = np.array([yearly["year"].min(), yearly["year"].max()])
+    ax1.plot(xfit, ic + sl * xfit, "--", color="black", linewidth=1.5, alpha=0.7)
+    ax1.text(0.05, 0.95, f"trend: {sl:+.2f}/yr\np = {pv:.3f}",
+             transform=ax1.transAxes, fontsize=9, verticalalignment="top",
+             bbox=dict(boxstyle="round", facecolor="wheat", alpha=0.8))
     ax1.set_xlabel("Year (product added to database)")
     ax1.set_ylabel("Mean Additive Count")
     ax1.set_title("Additives per Product Over Time")
@@ -169,7 +186,16 @@ def plot_trends(yearly):
 
     # Plot 2: Ingredient count
     ax2 = axes[1]
-    ax2.plot(yearly["year"], yearly["mean_ingredients"], "s-", color="teal", linewidth=2)
+    for i, (_, row) in enumerate(yearly.iterrows()):
+        ax2.plot(row["year"], row["mean_ingredients"], "s", color="teal",
+                 markersize=sizes[i] ** 0.5 * 2, alpha=alphas[i])
+    ax2.plot(yearly["year"], yearly["mean_ingredients"], "-", color="teal",
+             linewidth=1.5, alpha=0.5)
+    sl2, ic2, rv2, pv2, se2 = sp_stats.linregress(yearly["year"], yearly["mean_ingredients"])
+    ax2.plot(xfit, ic2 + sl2 * xfit, "--", color="black", linewidth=1.5, alpha=0.7)
+    ax2.text(0.05, 0.95, f"trend: {sl2:+.1f}/yr\np = {pv2:.3f}",
+             transform=ax2.transAxes, fontsize=9, verticalalignment="top",
+             bbox=dict(boxstyle="round", facecolor="wheat", alpha=0.8))
     ax2.set_xlabel("Year (product added to database)")
     ax2.set_ylabel("Mean Ingredient Count")
     ax2.set_title("Ingredients per Product Over Time")
@@ -177,12 +203,24 @@ def plot_trends(yearly):
 
     # Plot 3: NOVA 4 share
     ax3 = axes[2]
-    ax3.bar(yearly["year"], yearly["nova4_share"] * 100, color="firebrick", alpha=0.7)
+    bar_colors = ["firebrick" if n >= 15 else "lightsalmon" for n in yearly["n_products"]]
+    ax3.bar(yearly["year"], yearly["nova4_share"] * 100, color=bar_colors, alpha=0.7,
+            edgecolor="black", linewidth=0.3)
     ax3.set_xlabel("Year (product added to database)")
     ax3.set_ylabel("NOVA 4 Share (%)")
     ax3.set_title("Ultra-Processed (NOVA 4) Share")
     ax3.grid(True, alpha=0.3)
 
+    # Add sample size annotations to all panels
+    for ax, metric in zip(axes, ["mean_additives", "mean_ingredients", None]):
+        for _, row in yearly.iterrows():
+            y_val = row[metric] if metric else row["nova4_share"] * 100
+            ax.annotate(f"n={int(row['n_products'])}", (row["year"], y_val),
+                        fontsize=6, ha="center", va="bottom",
+                        xytext=(0, 4), textcoords="offset points", color="gray")
+
+    fig.suptitle("Open Food Facts: US Product Formulation Trends (2012-2025)",
+                 fontsize=13, fontweight="bold", y=1.02)
     plt.tight_layout()
     out_path = OUT / "additive_trends.png"
     plt.savefig(out_path, dpi=150, bbox_inches="tight")
