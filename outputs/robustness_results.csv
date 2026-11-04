@@ -1,0 +1,6 @@
+test,pearson_r,p_value,note
+"Levels, as in the headline",0.9644840748520396,2.683775081164521e-08,"block bootstrap 95% CI [0.89, 0.99]"
+Obesity vs calendar year alone,0.9845416248665582,1.9056589153768397e-10,"a plain time trend, no food data"
+Both series linearly detrended,-0.1870130448788413,0.5220511206741375,removes the shared trend
+Year-over-year changes,-0.1095032268907721,0.7217575618056151,annual obesity change vs annual exposure change
+Cumulated random noise placebo,,0.0185,"share of 10,000 random walks matching the headline |r|"
