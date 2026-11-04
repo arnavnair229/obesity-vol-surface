@@ -1,30 +1,18 @@
 """
-Build Health Volatility Surface from CDC BRFSS Obesity Data
-Model 1 v2: Conditional + Logistic Smoothed Threshold Crossing
-
-Reads raw CDC JSON, computes implied sigma surface, outputs:
-  - data/raw/cdc_brfss_obesity_total_us_states.csv
-  - outputs/health_vol_surface_model1.csv
-  - outputs/health-surface-data.json (for Three.js frontend)
+Rebuild the surface from the raw CDC JSON: writes
+data/raw/cdc_brfss_obesity_total_us_states.csv, then runs 02_build_surface.py.
 """
 
 import json
-import numpy as np
 import pandas as pd
+import runpy
 from pathlib import Path
-from scipy.stats import norm
-from sklearn.linear_model import LogisticRegression
 
 PROJECT = Path(__file__).resolve().parent.parent
 RAW_DIR = PROJECT / "data" / "raw"
 OUT_DIR = PROJECT / "outputs"
 RAW_DIR.mkdir(parents=True, exist_ok=True)
 OUT_DIR.mkdir(parents=True, exist_ok=True)
-
-
-def logit(p):
-    p = np.clip(p, 1e-6, 1 - 1e-6)
-    return np.log(p / (1.0 - p))
 
 
 # ── 1. Load raw JSON ──
@@ -45,185 +33,4 @@ print(f"Saved CSV: {csv_path} ({len(df)} rows)")
 print(f"Years: {df['yearstart'].min()}-{df['yearstart'].max()}")
 print(f"Locations: {df['locationabbr'].nunique()}")
 
-# ── 2. Compute surface ──
-df_work = df[["yearstart", "locationabbr", "locationdesc", "p"]].copy()
-df_work["S"] = logit(df_work["p"].values)
-
-# US national spot
-us = df_work[df_work["locationabbr"] == "US"].sort_values("yearstart")
-if us.empty:
-    print("No US rows, computing national avg from states")
-    us = df_work[~df_work["locationabbr"].isin(["US", "GU", "PR", "VI", "DC"])].copy()
-    us = us.groupby("yearstart").agg(p=("p", "mean")).reset_index()
-    us["S"] = logit(us["p"].values)
-    us["locationabbr"] = "US"
-
-S0 = float(us.iloc[-1]["S"])
-p0 = float(us.iloc[-1]["p"])
-y0 = int(us.iloc[-1]["yearstart"])
-print(f"\nSpot (US, {y0}): p0={p0:.4f} ({p0*100:.1f}%), S0={S0:.4f}")
-
-# State panel
-states = df_work[~df_work["locationabbr"].isin(["US", "GU", "PR", "VI"])].copy()
-panel = states.sort_values(["locationabbr", "yearstart"]).copy()
-
-Ts = [1, 2, 3, 5, 7, 10]
-Ks = [0.25, 0.28, 0.30, 0.32, 0.35, 0.38, 0.40, 0.42, 0.45]
-
-# Forward columns
-panel = panel.set_index(["locationabbr", "yearstart"]).sort_index()
-for T in Ts:
-    panel[f"p_fwd_{T}"] = panel.groupby(level=0)["p"].shift(-T)
-    panel[f"S_fwd_{T}"] = panel.groupby(level=0)["S"].shift(-T)
-panel = panel.reset_index()
-
-# ATM bucket width
-DELTA = 0.25
-
-surface_rows = []
-for T in Ts:
-    valid = panel.dropna(subset=[f"S_fwd_{T}", f"p_fwd_{T}"]).copy()
-    if len(valid) == 0:
-        print(f"  T={T}: no forward data, skipping")
-        continue
-
-    # Conditional drift from ATM bucket
-    bucket = valid[(valid["S"] >= S0 - DELTA) & (valid["S"] <= S0 + DELTA)]
-    if len(bucket) >= 30:
-        mu_T = float(np.mean(bucket[f"S_fwd_{T}"] - bucket["S"]))
-        mu_n = int(len(bucket))
-        mu_method = "bucket"
-    else:
-        mu_T = float(np.mean(valid[f"S_fwd_{T}"] - valid["S"]))
-        mu_n = int(len(valid))
-        mu_method = "global"
-
-    print(f"  T={T}: n={len(valid)}, bucket_n={len(bucket)}, mu_T={mu_T:.4f} ({mu_method})")
-
-    X = valid[["S"]].values
-
-    for K in Ks:
-        K_logit = float(logit(np.array([K]))[0])
-        y = (valid[f"p_fwd_{T}"].values >= K).astype(int)
-        event_rate = float(y.mean())
-
-        if event_rate < 0.01 or event_rate > 0.99:
-            surface_rows.append({
-                "asof_year": y0, "spot_p": round(p0, 4), "spot_S": round(S0, 4),
-                "T_years": T, "K_obesity_threshold": K, "K_logit": round(K_logit, 4),
-                "P_cross_at_spot": np.nan, "mu_T_logit": round(mu_T, 4),
-                "mu_method": mu_method, "mu_n_obs": mu_n,
-                "event_rate_global": round(event_rate, 4),
-                "implied_sigma_logit": np.nan, "implied_sigma_signed": np.nan,
-                "n_obs_total": int(len(valid)), "note": "insufficient_variation",
-            })
-            continue
-
-        model = LogisticRegression(solver="lbfgs", max_iter=1000)
-        model.fit(X, y)
-        P0 = float(model.predict_proba([[S0]])[0, 1])
-
-        if P0 <= 0.01 or P0 >= 0.99:
-            surface_rows.append({
-                "asof_year": y0, "spot_p": round(p0, 4), "spot_S": round(S0, 4),
-                "T_years": T, "K_obesity_threshold": K, "K_logit": round(K_logit, 4),
-                "P_cross_at_spot": round(P0, 4), "mu_T_logit": round(mu_T, 4),
-                "mu_method": mu_method, "mu_n_obs": mu_n,
-                "event_rate_global": round(event_rate, 4),
-                "implied_sigma_logit": np.nan, "implied_sigma_signed": np.nan,
-                "n_obs_total": int(len(valid)), "note": "extreme_conditional_prob",
-            })
-            continue
-
-        z = norm.ppf(1.0 - P0)
-        denom = z * np.sqrt(T)
-
-        if abs(denom) < 1e-8:
-            sigma = np.nan
-            sigma_signed = np.nan
-            note = "near_atm_singularity"
-        else:
-            sigma_signed = (K_logit - (S0 + mu_T)) / denom
-            sigma = abs(sigma_signed)
-            note = "ok"
-
-        surface_rows.append({
-            "asof_year": y0, "spot_p": round(p0, 4), "spot_S": round(S0, 4),
-            "T_years": T, "K_obesity_threshold": K, "K_logit": round(K_logit, 4),
-            "P_cross_at_spot": round(P0, 4), "mu_T_logit": round(mu_T, 4),
-            "mu_method": mu_method, "mu_n_obs": mu_n,
-            "event_rate_global": round(event_rate, 4),
-            "implied_sigma_logit": round(sigma, 4) if not np.isnan(sigma) else np.nan,
-            "implied_sigma_signed": round(sigma_signed, 4) if not np.isnan(sigma_signed) else np.nan,
-            "n_obs_total": int(len(valid)), "note": note,
-        })
-
-surface = pd.DataFrame(surface_rows)
-csv_out = OUT_DIR / "health_vol_surface_model1.csv"
-surface.to_csv(csv_out, index=False)
-print(f"\nSurface CSV: {csv_out}")
-print(surface.to_string(index=False))
-
-# ── 3. Generate Three.js JSON ──
-pivot = surface.pivot(
-    index="T_years", columns="K_obesity_threshold", values="implied_sigma_logit"
-)
-pivot = pivot.interpolate(method="linear", axis=1).interpolate(method="linear", axis=0)
-pivot = pivot.bfill(axis=1).ffill(axis=1).bfill(axis=0).ffill(axis=0)
-
-web_data = {
-    "metadata": {
-        "title": "US Health Volatility Surface",
-        "subtitle": "Conditional implied uncertainty of obesity threshold crossings",
-        "model": "Model 1 v2: Logistic-smoothed conditional threshold crossing",
-        "source": "CDC BRFSS Nutrition, Physical Activity, and Obesity",
-        "asof_year": y0,
-        "spot_obesity_pct": round(p0 * 100, 1),
-        "spot_logit": round(S0, 4),
-        "note": "Physical-measure risk surface. Probabilities conditional on S_t = S0 via logistic regression.",
-    },
-    "axes": {
-        "x": {
-            "label": "Obesity Threshold (Strike K %)",
-            "values": [round(k * 100, 0) for k in pivot.columns.tolist()],
-        },
-        "y": {
-            "label": "Horizon (Maturity T, years)",
-            "values": pivot.index.tolist(),
-        },
-    },
-    "surface": {
-        "z_label": "Implied Sigma (logit scale)",
-        "grid": [],
-    },
-    "raw_points": [],
-}
-
-for T in pivot.index:
-    row = []
-    for K in pivot.columns:
-        val = pivot.loc[T, K]
-        row.append(round(float(val), 4) if pd.notna(val) else 0)
-    web_data["surface"]["grid"].append(row)
-
-for _, r in surface.iterrows():
-    if pd.notna(r.get("implied_sigma_logit")):
-        web_data["raw_points"].append({
-            "T": int(r["T_years"]),
-            "K": float(r["K_obesity_threshold"]),
-            "sigma": round(float(r["implied_sigma_logit"]), 4),
-            "P_cross": round(float(r["P_cross_at_spot"]), 4),
-            "note": r["note"],
-        })
-
-json_path = OUT_DIR / "health-surface-data.json"
-with open(json_path, "w") as f:
-    json.dump(web_data, f, indent=2)
-
-print(f"\nFrontend JSON: {json_path}")
-print(f"Grid: {len(web_data['surface']['grid'])} x {len(web_data['surface']['grid'][0])}")
-print(f"Points: {len(web_data['raw_points'])}")
-print("\nSurface grid (T rows x K cols):")
-for i, T in enumerate(pivot.index):
-    vals = " ".join(f"{v:.4f}" for v in web_data["surface"]["grid"][i])
-    print(f"  T={T:2d}y: {vals}")
+runpy.run_path(str(PROJECT / "scripts" / "02_build_surface.py"), run_name="__main__")
