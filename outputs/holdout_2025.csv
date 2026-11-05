@@ -1,0 +1,5 @@
+T,origin,states,cells,contested_cells,drift_forecast_mean_pct,actual_mean_pct,brier_logistic_old,brier_contested_logistic_old,brier_logistic_fixed,brier_contested_logistic_fixed,brier_random_walk,brier_contested_random_walk,brier_persistence,brier_contested_persistence,contested_actual,contested_forecast_fixed,contested_forecast_rw,old_minus_rw_low,old_minus_rw_high,fixed_minus_rw_low,fixed_minus_rw_high
+1,2024,47,517,210,34.2383,33.434,0.067,0.152,0.0546,0.1254,0.0573,0.1316,0.0754,0.1762,0.481,0.5613,0.582,-0.0077,0.0251,-0.0078,0.0022
+2,2023,46,506,203,34.7947,33.413,0.0678,0.1509,0.0708,0.1615,0.0739,0.1689,0.0751,0.1724,0.4926,0.6682,0.6856,-0.0277,0.0126,-0.0078,0.0017
+3,2022,48,528,210,35.5455,33.5271,0.0732,0.1609,0.1,0.2398,0.1,0.2394,0.0814,0.1952,0.4762,0.7583,0.7595,-0.0488,-0.0047,-0.0045,0.0045
+5,2020,48,528,190,34.7486,33.5271,0.0851,0.1722,0.0817,0.1847,0.0729,0.1635,0.1174,0.2947,0.7316,0.9052,0.8747,-0.0101,0.034,0.0041,0.0134

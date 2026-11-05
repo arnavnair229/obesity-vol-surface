@@ -1,0 +1,21 @@
+spec,sample,term,coef,t,p,n,states
+"pooled, no fixed effects",full,limited,-4.9799,-1.1359,0.256,608,51
+state effects only,full,limited,34.3595,13.1321,0.0,608,51
+state and year effects,full,limited,4.332,1.8282,0.0675,608,51
+with full-service and grocery,full,limited,4.4164,1.9742,0.0484,608,51
+with full-service and grocery,full,fullservice,-1.8709,-0.6461,0.5182,608,51
+with full-service and grocery,full,grocery,1.244,0.608,0.5432,608,51
+with income and inactivity,full,limited,2.6438,1.3093,0.1904,557,51
+with income and inactivity,full,income,-4.9005,-2.4268,0.0152,557,51
+with income and inactivity,full,pct_inactive,0.0117,0.3342,0.7382,557,51
+density 2y earlier,full,lag2,1.8245,0.7461,0.4556,504,51
+density 4y earlier,full,lag4,-1.8627,-0.4749,0.6348,403,51
+placebo: density 2y later,full,lead2,6.3618,2.7575,0.0058,504,51
+density 2y earlier,common,lag2,3.5587,1.2398,0.2151,401,51
+same year,common,limited,6.9493,2.3974,0.0165,401,51
+placebo: density 2y later,common,lead2,6.7271,2.3101,0.0209,401,51
+all three together,common,lag2,-0.5587,-0.1932,0.8468,401,51
+all three together,common,limited,5.354,1.3312,0.1831,401,51
+all three together,common,lead2,4.3024,1.2413,0.2145,401,51
+"long difference 2012-2023, robust errors",full,limited,0.6404,0.1918,0.8479,49,49
+"long difference 2012-2023, robust errors",full,income,-13.6811,-3.929,0.0001,49,49

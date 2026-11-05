@@ -1,0 +1,4 @@
+check,sup_f,p,best_knot,slope_before,slope_after,jump,t_slope_change,p_slope_change
+through 2024,3.2822,0.2453,2021.0,0.5714,0.3479,,,
+without 2021,18.7987,0.0058,2022.0,0.5597,0.0942,,,
+level jump allowed at 2021,,,,0.5237,0.0342,0.9346,-6.7825,0.0

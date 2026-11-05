@@ -1,0 +1,7 @@
+source,period,period_start,period_end,percent,se,moe_95,sample_size,population,method,url
+NHANES,2013-2014,2013,2014,37.7,0.9,,5455,"age 20+, age-adjusted",measured height and weight,https://www.cdc.gov/nchs/products/databriefs/db508.htm
+NHANES,2015-2016,2015,2016,39.6,1.6,,5337,"age 20+, age-adjusted",measured height and weight,https://www.cdc.gov/nchs/products/databriefs/db508.htm
+NHANES,2017-March 2020,2017,2019,41.9,1.2,,8295,"age 20+, age-adjusted",measured height and weight,https://www.cdc.gov/nchs/products/databriefs/db508.htm
+NHANES,August 2021-August 2023,2021,2023,40.3,1.9,,5929,"age 20+, age-adjusted",measured height and weight,https://www.cdc.gov/nchs/products/databriefs/db508.htm
+Gallup,January 2022,2022,2022,39.9,,2.0,3035,age 18+,"self-reported, web panel",https://news.gallup.com/poll/696599/obesity-rate-declining.aspx
+Gallup,February-September 2025,2025,2025,37.0,,0.9,16946,age 18+,"self-reported, web panel",https://news.gallup.com/poll/696599/obesity-rate-declining.aspx
