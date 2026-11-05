@@ -13,6 +13,13 @@ logistic_fixed,575,0.498,0.534
 logistic_fixed,484,0.679,0.653
 logistic_fixed,746,0.834,0.78
 logistic_fixed,5386,0.988,0.978
+gaussian,7755,0.009,0.014
+gaussian,868,0.167,0.217
+gaussian,609,0.322,0.356
+gaussian,727,0.497,0.517
+gaussian,582,0.676,0.679
+gaussian,806,0.831,0.826
+gaussian,5186,0.989,0.982
 random_walk,7734,0.009,0.014
 random_walk,871,0.169,0.217
 random_walk,590,0.321,0.368
