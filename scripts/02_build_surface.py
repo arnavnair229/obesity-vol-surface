@@ -1,5 +1,5 @@
 """
-Build the obesity threshold-crossing surface (Model 1 v3: implied forward).
+Build the obesity threshold-crossing surface (Model 1 v4: unpenalized fit, implied forward).
 
 For each horizon T, a logistic regression gives P(p_{t+T} >= K | S_t = S0) on a fine strike grid.
 The implied forward m_T is the logit strike where that probability is 50%, the same way an option
@@ -31,11 +31,14 @@ OUT = PROJECT / "outputs"
 OUT.mkdir(parents=True, exist_ok=True)
 
 TS = [1, 2, 3, 5, 7, 10]
-KS = [0.25, 0.28, 0.30, 0.32, 0.35, 0.38, 0.40, 0.42, 0.45]
+KS = [0.25, 0.28, 0.30, 0.32, 0.33, 0.34, 0.35, 0.36, 0.37, 0.38, 0.40, 0.42, 0.45]
 FINE_KS = np.round(np.arange(0.22, 0.4801, 0.005), 3)
 P_MIN, P_MAX = 0.01, 0.99  # outside this range the inversion is not meaningful
 MIN_EVENT_RATE = 0.01
 ATM_Z = 0.15  # inside this band, use the local slope instead of the ratio
+# scikit-learn's default C=1 penalizes the slope. On a logit with a spread of about 0.2, that flattens
+# the curve and sets the implied sigma. C this large is effectively an unpenalized fit.
+LOGIT_C = 1e6
 
 
 def logit(p):
@@ -49,7 +52,7 @@ def crossing_prob(x, fwd_p, k, s0):
     rate = y.mean()
     if rate < MIN_EVENT_RATE or rate > 1 - MIN_EVENT_RATE:
         return np.nan
-    model = LogisticRegression(solver="lbfgs", max_iter=1000).fit(x, y)
+    model = LogisticRegression(solver="lbfgs", max_iter=5000, C=LOGIT_C).fit(x, y)
     return float(model.predict_proba([[s0]])[0, 1])
 
 
@@ -135,7 +138,7 @@ web = {
     "metadata": {
         "title": "US Obesity Threshold Surface",
         "subtitle": "Implied uncertainty of threshold crossings, from CDC BRFSS state data",
-        "model": "Model 1 v3: logistic crossing curve with implied forward",
+        "model": "Model 1 v4: unpenalized logistic crossing curve with implied forward",
         "source": "CDC BRFSS Nutrition, Physical Activity, and Obesity",
         "asof_year": y0,
         "spot_obesity_pct": round(p0 * 100, 1),
