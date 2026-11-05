@@ -1,0 +1,5 @@
+measure,first_year,last_year,waves,states_balanced,mean_first,mean_2021,mean_last,cross_state_r_latest,fe_coef,fe_t,fe_n,change_r,change_states
+low_vegetables,2017,2025,4.0,46,17.7587,19.5522,22.3239,0.3047,0.091,1.1193,199.0,0.1126,48.0
+low_fruit,2017,2025,4.0,46,36.5196,40.7239,43.2239,0.6976,0.0781,1.0747,199.0,0.2652,48.0
+inactive,2011,2025,15.0,43,25.3395,23.2953,21.2581,0.7096,0.0247,0.6363,757.0,0.1239,48.0
+overweight_or_obese,2011,2025,,43,62.9698,67.5907,68.0535,,,,,,

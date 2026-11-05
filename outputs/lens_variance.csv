@@ -1,0 +1,2 @@
+intercept_var,slope_var_per_year,sd_noise,sd_real_per_year,sd_survey_error_one_year,sd_survey_error_both_ends,share_noise_at_1y,share_noise_at_5y,share_noise_at_10y
+0.004,0.0002,0.0631,0.0157,0.039,0.0551,1,0.7405,0.626

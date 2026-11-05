@@ -1,8 +1,17 @@
 # US Obesity Threshold Surface
 
-Option-pricing tools applied to public health data: a surface of how likely US obesity prevalence is to cross a given level over a given horizon, built from CDC state data and backtested out of sample.
+I care a lot about health, and I'm worried about how Americans eat and what it's doing to them. I also think in options. So I took CDC's state obesity data and built the surface a desk would build: the chance of crossing each obesity level at each horizon. Then I backtested it and asked what it says about the country.
 
-The backtest found that a default setting had been distorting the surface. That is fixed here, and the old numbers stay on record below. Food data is included as a hypothesis, along with the tests it failed.
+**What I found:**
+
+- **The rise has paused at a high level. It hasn't reversed.** Self-reported obesity has been flat since 2021, at about 33%, and 68% of adults report being overweight or obese. CDC's measured survey puts obesity at 40%.
+- **The plateau doesn't look like better eating.** Since 2017, the share of adults who don't eat fruit daily rose from 37% to 43%, and for vegetables from 18% to 22%.
+- **The whole outlook is a bet on drift.** If the old trend returns, 41 states are over 35% within 10 years. If the plateau holds, it stays near 21. Nothing else in the model comes close to mattering that much.
+- **A flat national rate needs generations to gain far less.** It would take about a quarter of the gain each generation saw from 2015 to 2025.
+- **Each point is worth a lot.** One point of obesity is about 2.7 million adults and roughly $5 billion a year in excess medical costs.
+- **I can't show that food causes this.** Every state-level food test I ran came up short once national trends were removed. That's the limit of this data, and my concern about food remains a hypothesis.
+
+The analogy organizes the results. Nothing here trades, and these are historical frequencies on mostly self-reported data, not prices.
 
 ## Run it
 
@@ -22,107 +31,163 @@ python scripts/11_download_latest_brfss.py  # optional, the latest CDC data is a
 python scripts/12_holdout_2025.py           # score frozen models on 2025
 python scripts/13_measured_gap.py           # self-report vs measured obesity
 python scripts/14_trend_break.py            # trend break and age pattern
+python scripts/15_download_health_context.py  # optional, diet, activity and adult population are already in data/raw
+python scripts/16_options_lens.py           # the options reading and health results
 ```
 
-## The surface
+## Reading it like an options desk
 
-US adult obesity rose from 27.4% in 2011 to 33.1% in 2024 (CDC BRFSS).
+| Options idea | What the data shows | What it means for health |
+|---|---|---|
+| **Spot** | 33.0% for 2025. CDC reports 33.5%, but California, Mississippi and Nevada are missing, which I estimate adds about 0.45 points. | The headline number can move because of who answered. |
+| **Mark vs fair value** | CDC's measured survey found [40.3%](https://www.cdc.gov/nchs/products/databriefs/db508.htm) for 2021 to 2023, against 33.0% self-reported. | The everyday number understates the problem by about 7 points. |
+| **Forward curve** | Upward-sloping, like contango: 33.4% at 1 year, 35.6% at 5, 38.3% at 10. | This is where the last 14 years point. |
+| **Roll** | Spot hasn't climbed the curve since 2021. Forecasts for 2025 ran 0.8 to 2.0 points too high. | The slowdown is real in this data. Whether it lasts is the open question. |
+| **Implied vol** | Falls from 0.063 at 1 year to 0.025 at 10, far from a flat term structure. | Most year-to-year movement in a state is survey noise. |
+| **Smile** | None to speak of. Residuals are close to normal (excess kurtosis 0.3 to 0.6). | Obesity moves like a slow grind. There are no sudden shocks to price. |
+| **Delta** | At 35% and 5 years, one point lower today cuts the crossing odds from 63% by about 22 points. | Small gains matter most for states just below a level. |
+| **Theta** | Near the same strike, each extra year adds about 15 points to the odds. | Time works against you while the trend holds. |
+| **Vega vs drift** | A 10% rise in vol moves any crossing odds by 2.3 points at most. Going from trend to flat moves 5-year odds at 35% from 63% to 12%. | What happens to the trend matters far more than how uncertain any year is. |
+
+![The forward curve against a flat path](outputs/lens_forward_curve.png)
+
+**Separating noise from real change:** if changes were pure random walk, variance would grow in line with the horizon. Instead, it starts high and grows slowly. Fitting variance against horizon gives noise of 0.063 that doesn't build with time, and real change of 0.016 per year in logit terms, roughly a third of a point. CDC's own confidence intervals imply survey error of 0.055, close to that noise estimate. So noise is nearly all of the 1-year variance and 63% of it even at 10 years. West Virginia's 4-point fall in 2025 is more likely this noise than a health gain.
+
+## What this means for US health
+
+**1. The plateau is high, and it isn't a recovery.** In the 43 states with data every year, overweight or obese went from 63% in 2011 to 68% in 2025. CDC says [58% of adults with obesity have high blood pressure and about 23% have diabetes](https://www.cdc.gov/obesity/adult-obesity-facts/index.html).
+
+**2. It doesn't look like Americans are eating better.**
+
+| Adults who... | 2017 | 2021 | 2025 |
+|---|---|---|---|
+| Don't eat fruit daily (46 states) | 36.5% | 40.7% | 43.2% |
+| Don't eat vegetables daily (46 states) | 17.8% | 19.5% | 22.3% |
+| Get no leisure-time exercise (43 states, 2011 was 25.3%) | | 23.3% | 21.3% |
+
+Exercise is improving and diet isn't, by these measures. So the plateau has some other explanation, and this data can't say which. GLP-1 drugs are one candidate, but CDC's age pattern doesn't match them (see below). I haven't confirmed that CDC's fruit and vegetable questions were asked the same way in every year.
+
+**3. Younger generations carry it forward.**
+
+![Obesity by age, 2011 and 2025](outputs/lens_generations.png)
+
+Every age group reports more obesity than in 2011, by 4.4 to 8.1 points, most at 35 to 44. Following generations through the age bands, people aged 25 to 34 in 2015 went from 26.9% to 38.6% at 35 to 44 in 2025. Some of that is normal aging, but the group before them gained about the same (10.8 points against 11.7).
+
+Rolling each age group forward 10 years with today's age mix:
+
+| If each generation... | National rate in 2035 |
+|---|---|
+| Gains nothing more | 32.5% |
+| Gains what it did from 2015 to 2025 | 38.0% |
+
+These use the 43-state series, which starts at 33.9% today. Holding that flat needs about 26% of last decade's gain. The 38.0% lines up with the forward curve's 38.3%, but both carry the same decade forward, so it isn't independent confirmation.
+
+**4. It's a regional problem too.**
+
+| States over the level | 35% | 40% |
+|---|---|---|
+| Today | 22 | 1 |
+| In 5 years, trend | 32 | 9 |
+| In 5 years, flat | 21 | 2 |
+| In 10 years, trend | 41 | 22 |
+| In 10 years, flat | 21 | 3 |
+
+Mississippi (40.4%, 2024), Alabama (39.7%), North Dakota (39.1%), Kentucky (38.8%) and Oklahoma (38.1%) are highest. A state's delta to the 40% level peaks around 37% to 38%, where a point of improvement changes the odds most: Indiana, West Virginia, Kansas, Tennessee and Oklahoma today. See `outputs/lens_states.csv`.
+
+**5. The stakes, in people and dollars.** Think of a plateau as the payoff on a put against the old trend.
+
+| | Adults | Excess medical cost per year |
+|---|---|---|
+| One point of obesity | 2.7 million | $4.9 billion |
+| Trend vs flat in 5 years (2.5 points) | 6.7 million | $12 billion |
+| Trend vs flat in 10 years (5.2 points) | 13.9 million | $26 billion |
+
+This is simple arithmetic: 266 million civilian adults (Census, 2024) times [CDC's $1,861 per person](https://www.cdc.gov/obesity/adult-obesity-facts/index.html) in 2019 dollars, against CDC's nearly $173 billion total. It holds the adult population fixed, and the per-person figure is a comparison with healthy-weight adults, not a proven saving from losing weight.
+
+**6. What I can't conclude.** States that eat less fruit and exercise less are heavier (r = 0.70 and 0.71 across states). But within a state over time, none of these measures tracks obesity once national trends are removed (t = 1.1 for vegetables, 1.1 for fruit, 0.6 for inactivity), and changes since 2017 barely line up across states (r = 0.11 to 0.27). Diet is measured in only four survey years, which limits these tests. So geography fits my concern about food, and the changes over time don't confirm it.
+
+## The surface
 
 | Concept | Options analogy | Here |
 |---|---|---|
 | Underlying $S_t$ | Stock price | $\text{logit}(\text{prevalence})$ |
 | Strike $K$ | Option strike | Obesity threshold, 25% to 45% |
 | Maturity $T$ | Time to expiry | Horizon, 1 to 10 years |
-| Implied forward $m_T$ | Forward price | The strike with a 50% crossing probability |
-| Implied $\sigma$ | Implied vol | Uncertainty implied by the crossing curve |
+| Forward $m_T$ | Forward price | $a_T + b_T S_0$ |
+| Implied $\sigma$ | Implied vol | $s_T / \sqrt{T}$ |
 
-**Construction:**
+**Construction:** for each horizon, fit one line on the state panel, $S_{t+T} = a_T + b_T S_t + \varepsilon$ with normal errors of size $s_T$. Then $\Pr(p_T \geq K) = \Phi\big((m_T - \text{logit}\,K)/s_T\big)$.
 
-1. For each $(T, K)$, fit an unpenalized logistic regression for $\Pr(p_{t+T} \geq K \mid S_t)$ on the state panel and evaluate it at the 2024 national level. Probabilities are forced to fall as the strike rises.
-2. Read the implied forward $m_T$ off that curve, at the strike where the probability is 50%.
-3. Invert: $\sigma(T, K) = \dfrac{K_{\text{logit}} - m_T}{\Phi^{-1}(1 - \hat P)\,\sqrt{T}}$. Near the money, where numerator and denominator both approach zero, use the curve's local slope.
-4. Leave a cell empty when $\hat P$ is outside 1% to 99%. The curve is steep enough that only strikes from 32% to 40% have values, none at every horizon. Nothing is interpolated into the empty cells.
+This replaces a separate logistic fit at every strike, which left noise near the forward (0.027 beside 0.042). One curve per horizon removes that ripple and gives closed-form Greeks. It makes sigma flat across strikes by construction, which the near-normal residuals support.
 
-**Why the implied forward:** earlier versions took drift from a separate average of nearby states. The numerator and denominator then hit zero at different strikes, which put a false spike in the surface (0.30 at K=35%, T=5y, next to values around 0.03) and a false "ATM ridge". Using one curve for both removes it.
-
-**Implied sigma (logit scale, blank where the probability is outside 1% to 99%):**
-
-| T \\ K | 32% | 33% | 34% | 35% | 36% | 37% | 38% | 40% |
-|---|---|---|---|---|---|---|---|---|
-| 1y | 0.066 | 0.062 | 0.074 | 0.053 | 0.064 | 0.066 | | |
-| 3y | 0.038 | 0.034 | 0.026 | 0.036 | 0.033 | 0.033 | 0.036 | |
-| 5y | | 0.029 | 0.024 | 0.024 | 0.030 | 0.024 | 0.025 | |
-| 10y | | | | 0.024 | 0.023 | 0.024 | 0.027 | 0.019 |
-
-Sigma falls with maturity. Across strikes it is roughly flat, with noise near the forward, where small errors in the numerator and denominator matter most. An earlier version of this README described a smile. Most of that shape came from the penalty described below.
-
-**Crossing probabilities, for a state at today's national level:**
+**Chance of crossing, for a state at today's national level:**
 
 | K | T = 1y | T = 3y | T = 5y | T = 10y |
 |---|---|---|---|---|
-| 32% | 88.9% | 97.8% | | |
-| 34% | 45.1% | 81.5% | 94.6% | |
-| 35% | 15.6% | 47.6% | 79.0% | 98.2% |
-| 36% | 6.4% | 20.4% | 49.3% | 94.3% |
-| 38% | | 1.7% | 6.2% | 63.4% |
-| 40% | | | | 17.8% |
+| 33% | 60.5% | 79.9% | 94.0% | 99.8% |
+| 34% | 32.6% | 58.1% | 82.7% | 99.0% |
+| 35% | 12.3% | 33.8% | 63.2% | 96.2% |
+| 36% | 3.2% | 15.1% | 39.8% | 89.1% |
+| 37% | 0.5% | 5.1% | 19.8% | 75.4% |
+| 38% | 0.1% | 1.2% | 7.6% | 56.1% |
+| 40% | 0.0% | 0.0% | 0.5% | 18.4% |
 
-The implied forward rises from 33.8% at 1 year to 38.7% at 10 years.
+If drift is zero instead, the 35% row reads 8.2%, 11.1%, 11.8% and 13.8%.
+
+**How far to trust it:**
+
+- These are historical frequencies, not risk-neutral prices. Nothing here trades.
+- They describe one state's reported figure, survey noise included. The national rate is much less noisy, so its own crossings would be sharper.
+- State-years overlap and share national shocks, so the effective sample is much smaller than the row count. The 10-year column rests on 248 overlapping pairs from 5 start years.
+- The forward extrapolates a rise that may have stopped, and it ran high at every horizon on 2025. Read the longer-dated probabilities as "if the old trend resumes."
+- The spot adjustment is my estimate. It weights states by adult population, which CDC's national figure may not do exactly.
 
 ## Backtest
 
 At each forecast date, every model was fit only on pairs whose outcome was already known, then used to forecast each state's crossings T years later (16,533 forecasts, forecast dates 2013 to 2023, strikes 25% to 40%). Lower Brier scores are better. "Contested" cells start within 3 points of the strike, a rule that doesn't depend on any model's forecast.
 
-| Horizon | Forecast dates | Old fit, C=1 | Current fit | Random walk with drift | No change |
-|---|---|---|---|---|---|
-| 1y | 11 | 0.085 | 0.050 | 0.049 | 0.072 |
-| 2y | 9 | 0.099 | 0.057 | 0.055 | 0.094 |
-| 3y | 7 | 0.116 | 0.061 | 0.060 | 0.124 |
-| 5y | 3 | 0.139 | 0.068 | 0.063 | 0.173 |
-| 1y, contested | 11 | 0.217 | 0.138 | 0.137 | 0.204 |
-| 3y, contested | 7 | 0.279 | 0.144 | 0.142 | 0.326 |
-| 5y, contested | 3 | 0.287 | 0.115 | 0.102 | 0.392 |
+| Horizon | Forecast dates | Original, C=1 | Logistic, no penalty | One curve (current) | Random walk with drift | No change |
+|---|---|---|---|---|---|---|
+| 1y | 11 | 0.085 | 0.050 | 0.049 | 0.049 | 0.072 |
+| 2y | 9 | 0.099 | 0.057 | 0.054 | 0.055 | 0.094 |
+| 3y | 7 | 0.116 | 0.061 | 0.060 | 0.060 | 0.124 |
+| 5y | 3 | 0.139 | 0.068 | 0.065 | 0.063 | 0.173 |
+| 1y, contested | 11 | 0.217 | 0.138 | 0.136 | 0.137 | 0.204 |
+| 3y, contested | 7 | 0.279 | 0.144 | 0.141 | 0.142 | 0.326 |
+| 5y, contested | 3 | 0.287 | 0.115 | 0.105 | 0.102 | 0.392 |
 
-**What was wrong:** scikit-learn's `LogisticRegression` applies an L2 penalty by default. On an unstandardized logit with a spread of about 0.2, that penalty is heavy: at T=1, K=32% it cut the fitted slope from about 29 to about 10. The flattened curve badly under-forecast likely crossings, lost to assuming no change at 1 and 2 years across all cells, and set much of the implied sigma. At T=1, K=35%, sigma was 0.127 and is now 0.053. The T=5, K=35% crossing probability was 52.5% and is now 79.0%.
+**What was wrong:** scikit-learn's `LogisticRegression` applies an L2 penalty by default. On an unstandardized logit with a spread of about 0.2, that penalty is heavy: at T=1, K=32% it cut the fitted slope from about 29 to about 10. The flattened curve badly under-forecast likely crossings, lost to assuming no change at 1 and 2 years across all cells, and set much of the implied sigma. Removing it took sigma at T=1, K=35% from 0.127 to 0.053, and the T=5, K=35% crossing probability from 52.5% to 79.0%. The current model, with 2025 included, gives 0.063 and 63.2%.
 
-| Forecast, old fit | Actual | Forecast, current fit | Actual | Forecast, random walk | Actual |
-|---|---|---|---|---|---|
-| 32% | 49% | 33% | 41% | 32% | 37% |
-| 50% | 71% | 50% | 53% | 50% | 50% |
-| 68% | 91% | 68% | 65% | 68% | 66% |
-| 83% | 97% | 83% | 78% | 83% | 82% |
+| Forecast, original fit | Actual | Forecast, current curve | Actual |
+|---|---|---|---|
+| 32% | 49% | 32% | 36% |
+| 50% | 71% | 50% | 52% |
+| 68% | 91% | 68% | 68% |
+| 83% | 97% | 83% | 83% |
 
 ![Calibration chart](outputs/backtest_calibration.png)
 
 **How to read this:**
 
-- Intervals resample forecast dates and states, because forecasts share national shocks. The old fit's gap to the random walk excludes zero at every horizon. The current fit's gap includes zero at every horizon, so I can't say the random walk is better, though its point estimates are lower at all of them. Details are in `outputs/backtest_scores.csv`.
-- The penalty was found with this backtest and fixed afterward, and these are the same years the fix is scored on. No parameter was tuned to them, but this isn't a clean holdout. The 2025 test below is.
+- Intervals resample forecast dates and states, because forecasts share national shocks. The original fit's gap to the random walk excludes zero at every horizon. The current curve's gap includes zero at every horizon, so it can't be separated from the random walk. Details are in `outputs/backtest_scores.csv`.
+- The penalty was found with this backtest and fixed afterward, and these are the same years the fix is scored on. No parameter was tuned to them, but this isn't a clean holdout. The 2025 test below was clean for the logistic fix. I chose the one-curve model after seeing that test, so it needs 2026 data for a clean one.
 - The 5-year rows rest on 3 forecast dates. The 7- and 10-year columns of the surface can't be tested at all, because the data starts in 2011.
 - State forecasts are the main test. The US series has far too few independent outcomes, though its scores in `outputs/backtest_national.csv` point the same way.
 
-**How far to trust the surface:**
-
-- These are historical-frequency probabilities, not risk-neutral ones. Nothing here trades.
-- They describe a state at today's national level, not the national rate itself.
-- State-years overlap and share national shocks, so the effective sample is much smaller than the row count.
-- The fit extrapolates a rise that may have stopped, and it overshot every horizon in the 2025 holdout below. Read the longer-dated probabilities as "if the old trend resumes."
-- BRFSS is self-reported, so these strikes are not measured-obesity levels. See below.
-
 ## Has the trend changed?
 
-The surface stays frozen on data through 2024. CDC has since published 2025, which gives a year nothing here was built or fixed with.
+The backtest and these tests use data through 2024 for fitting, so 2025 is a year those fits never saw. The surface above now includes 2025.
 
 **Holdout: forecasts for 2025**
 
-| Horizon, forecast date | Old fit | Current fit | Random walk | No change | Drift forecast of the state mean | Actual |
-|---|---|---|---|---|---|---|
-| 1y, 2024 | 0.067 | 0.055 | 0.057 | 0.075 | 34.2% | 33.4% |
-| 2y, 2023 | 0.068 | 0.071 | 0.074 | 0.075 | 34.8% | 33.4% |
-| 3y, 2022 | 0.073 | 0.100 | 0.100 | 0.081 | 35.5% | 33.5% |
-| 5y, 2020 | 0.085 | 0.082 | 0.073 | 0.117 | 34.7% | 33.5% |
+| Horizon, forecast date | Original, C=1 | Logistic, no penalty | One curve (current) | Random walk | No change | Drift forecast of the state mean | Actual |
+|---|---|---|---|---|---|---|---|
+| 1y, 2024 | 0.067 | 0.055 | 0.054 | 0.057 | 0.075 | 34.2% | 33.4% |
+| 2y, 2023 | 0.068 | 0.071 | 0.069 | 0.074 | 0.075 | 34.8% | 33.4% |
+| 3y, 2022 | 0.073 | 0.100 | 0.098 | 0.100 | 0.081 | 35.5% | 33.5% |
+| 5y, 2020 | 0.085 | 0.082 | 0.075 | 0.073 | 0.117 | 34.7% | 33.5% |
 
-The fix wins clearly at 1 year and is close at 2 and 5, but at 3 years the old fit and even "no change" beat it. The old fit's habit of under-forecasting happens to suit a plateau. In contested cells at 3 years, the current fit forecast 76% and 48% crossed. All of this is one outcome year, so one national shock moves every score.
+Removing the penalty wins clearly at 1 year and is close at 2 and 5, but at 3 years the original fit and even "no change" beat it. The original fit's habit of under-forecasting happens to suit a plateau. All of this is one outcome year, so one national shock moves every score.
 
 **Is there a break?**
 
@@ -213,7 +278,7 @@ Coefficients are percentage points of obesity per log unit of density, with erro
 
 Income held up better. States with faster income growth saw smaller rises in obesity (-13.7 per log unit of income, t = -3.9, 49 states). That is an association, and I chose to look at it after seeing the data.
 
-Limits: establishment counts aren't what people eat, density barely changes year to year, so its lags and leads are hard to separate, and failing with this one proxy doesn't rule out a food effect. A natural experiment would be a stronger test.
+The diet measures in section 6 above point the same way. Limits: establishment counts aren't what people eat, density barely changes year to year, so its lags and leads are hard to separate, and failing with this one proxy doesn't rule out a food effect. A natural experiment would be a stronger test.
 
 ## Data sources
 
@@ -224,6 +289,9 @@ Limits: establishment counts aren't what people eat, density barely changes year
 | [CDC BRFSS, latest](https://data.cdc.gov/resource/hn4x-zwk7) | Through 2025, overall and by age | Holdout, break test |
 | [NHANES, NCHS Data Brief 508](https://www.cdc.gov/nchs/products/databriefs/db508.htm) | 2013-2023 | Measured obesity |
 | [Gallup](https://news.gallup.com/poll/696599/obesity-rate-declining.aspx) | 2022, 2025 | Second self-report source |
+| [CDC BRFSS, behaviors](https://data.cdc.gov/resource/hn4x-zwk7) | Fruit and vegetables 2017-2025, inactivity and overweight 2011-2025 | Diet and activity |
+| [Census population by age](https://www2.census.gov/programs-surveys/popest/datasets/2020-2024/state/asrh/) | 2024 | Adults, age weights, spot adjustment |
+| [CDC Adult Obesity Facts](https://www.cdc.gov/obesity/adult-obesity-facts/index.html) | 2019 dollars | Medical costs, related conditions |
 | [Census County Business Patterns](https://www2.census.gov/programs-surveys/cbp/datasets/) | 50 states + DC, 2012-2023 | Restaurant and grocery establishments |
 | [Census population estimates](https://www2.census.gov/programs-surveys/popest/datasets/) | 50 states + DC, 2012-2023 | Per-capita density |
 | [USDA ERS Sugar & Sweeteners](https://www.ers.usda.gov/data-products/sugar-and-sweeteners-yearbook-tables/) | 1966-2024 | Caloric sweeteners |
@@ -238,8 +306,9 @@ Limits: establishment counts aren't what people eat, density barely changes year
 | `outputs/health_vol_surface_model1.csv` | Full surface with probabilities, forwards and notes |
 | `outputs/health-surface-data.json` | Data behind the wireframe on [my site](https://arnavnair229.github.io) |
 | `outputs/backtest_scores.csv`, `outputs/backtest_calibration.csv`, `outputs/backtest_by_origin.csv`, `outputs/backtest_national.csv` | Out-of-sample scores, intervals and calibration |
-| `outputs/model_comparison_today.csv` | Current fit and random walk at today's level |
+| `outputs/model_comparison_today.csv` | The candidate models side by side at the 2024 level |
 | `outputs/state_food_panel_results.csv` | Restaurant density regressions |
+| `outputs/lens_*.csv`, `outputs/lens_*.png` | Term structure, Greeks, noise split, states, generations, diet, value |
 | `outputs/holdout_2025.csv` | Frozen models scored on 2025 |
 | `outputs/trend_break.csv`, `outputs/trend_break_checks.csv`, `outputs/age_changes.csv` | Break test, its stress tests, and changes by age |
 | `outputs/measured_gap.csv`, `outputs/measured_strikes.csv` | Self-report vs measured |

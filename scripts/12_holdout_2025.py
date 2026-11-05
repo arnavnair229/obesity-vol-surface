@@ -20,7 +20,7 @@ spec = importlib.util.spec_from_file_location("backtest", PROJECT / "scripts" / 
 bt = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(bt)
 EXCLUDE = ["US", "GU", "PR", "VI"]
-SHOW = ["logistic_old", "logistic_fixed", "random_walk", "persistence"]
+SHOW = ["logistic_old", "logistic_fixed", "gaussian", "random_walk", "persistence"]
 
 
 def main():
@@ -53,7 +53,7 @@ def main():
         row["contested_actual"] = hit[near].mean()
         row["contested_forecast_fixed"] = preds["logistic_fixed"][near].mean()
         row["contested_forecast_rw"] = preds["random_walk"][near].mean()
-        for label, name in (("old", "logistic_old"), ("fixed", "logistic_fixed")):
+        for label, name in (("old", "logistic_old"), ("fixed", "logistic_fixed"), ("gaussian", "gaussian")):
             by_state = ((preds[name] - hit) ** 2 - (preds["random_walk"] - hit) ** 2).mean(axis=1)
             draws = [by_state[rng.integers(0, len(by_state), len(by_state))].mean() for _ in range(5000)]
             row[f"{label}_minus_rw_low"], row[f"{label}_minus_rw_high"] = np.percentile(draws, [2.5, 97.5])
