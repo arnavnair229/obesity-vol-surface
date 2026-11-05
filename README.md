@@ -18,6 +18,10 @@ python scripts/07_robustness.py             # stress tests on the national resul
 python scripts/08_backtest.py               # out-of-sample test of the surface
 python scripts/09_download_food_environment.py  # optional, the Census data is already in data/raw
 python scripts/10_state_food_panel.py       # restaurant density by state
+python scripts/11_download_latest_brfss.py  # optional, the latest CDC data is already in data/raw
+python scripts/12_holdout_2025.py           # score frozen models on 2025
+python scripts/13_measured_gap.py           # self-report vs measured obesity
+python scripts/14_trend_break.py            # trend break and age pattern
 ```
 
 ## The surface
@@ -93,7 +97,7 @@ At each forecast date, every model was fit only on pairs whose outcome was alrea
 **How to read this:**
 
 - Intervals resample forecast dates and states, because forecasts share national shocks. The old fit's gap to the random walk excludes zero at every horizon. The current fit's gap includes zero at every horizon, so I can't say the random walk is better, though its point estimates are lower at all of them. Details are in `outputs/backtest_scores.csv`.
-- The penalty was found with this backtest and fixed afterward, and these are the same years the fix is scored on. No parameter was tuned to them, but this isn't a clean holdout.
+- The penalty was found with this backtest and fixed afterward, and these are the same years the fix is scored on. No parameter was tuned to them, but this isn't a clean holdout. The 2025 test below is.
 - The 5-year rows rest on 3 forecast dates. The 7- and 10-year columns of the surface can't be tested at all, because the data starts in 2011.
 - State forecasts are the main test. The US series has far too few independent outcomes, though its scores in `outputs/backtest_national.csv` point the same way.
 
@@ -102,8 +106,71 @@ At each forecast date, every model was fit only on pairs whose outcome was alrea
 - These are historical-frequency probabilities, not risk-neutral ones. Nothing here trades.
 - They describe a state at today's national level, not the national rate itself.
 - State-years overlap and share national shocks, so the effective sample is much smaller than the row count.
-- The fit extrapolates recent history, and history may have shifted. In contested cells, the random walk under-forecast crossings at every horizon when outcomes ended before 2023 (by 1 to 8 points on average) and over-forecast them when outcomes ended in 2023 or 2024 (by 3 to 14 points). The state average has been flat since 2021 (33.5%, 33.8%, 33.6%, 33.8%). That is only two outcome years, and it doesn't show a cause, so treat it as a lead and not a finding.
-- BRFSS is self-reported. CDC's measured survey put adult obesity at [40.3% for August 2021 to August 2023](https://www.cdc.gov/nchs/products/databriefs/db508.htm), so these strikes are not measured-obesity levels.
+- The fit extrapolates a rise that may have stopped, and it overshot every horizon in the 2025 holdout below. Read the longer-dated probabilities as "if the old trend resumes."
+- BRFSS is self-reported, so these strikes are not measured-obesity levels. See below.
+
+## Has the trend changed?
+
+The surface stays frozen on data through 2024. CDC has since published 2025, which gives a year nothing here was built or fixed with.
+
+**Holdout: forecasts for 2025**
+
+| Horizon, forecast date | Old fit | Current fit | Random walk | No change | Drift forecast of the state mean | Actual |
+|---|---|---|---|---|---|---|
+| 1y, 2024 | 0.067 | 0.055 | 0.057 | 0.075 | 34.2% | 33.4% |
+| 2y, 2023 | 0.068 | 0.071 | 0.074 | 0.075 | 34.8% | 33.4% |
+| 3y, 2022 | 0.073 | 0.100 | 0.100 | 0.081 | 35.5% | 33.5% |
+| 5y, 2020 | 0.085 | 0.082 | 0.073 | 0.117 | 34.7% | 33.5% |
+
+The fix wins clearly at 1 year and is close at 2 and 5, but at 3 years the old fit and even "no change" beat it. The old fit's habit of under-forecasting happens to suit a plateau. In contested cells at 3 years, the current fit forecast 76% and 48% crossed. All of this is one outcome year, so one national shock moves every score.
+
+**Is there a break?**
+
+CDC's national figure rose from 33.1% to 33.5% in 2025, but California, Mississippi and Nevada are missing that year, and California's rate was 29.1% in 2024. In the 47 states reporting both years, the mean fell by 0.3 points. So I use the 43 states present in every year, which leaves out CA, FL, KY, MS, NJ, NV, PA and TN.
+
+- That series rose 0.52 points a year from 2011 to 2020, jumped in 2021, and has barely moved since (33.44% in 2021, 33.54% in 2025). Its 4-year change is +0.09, against +1.64 to +2.81 in every earlier window.
+- 2025 is below the 95% range from extrapolating the 2011-2020 trend (34.0% to 35.5%).
+- A test that searches for the break date gives p = 0.002, with the best date at 2022.
+
+**This is fragile.** Through 2024 alone the same test gives p = 0.25, so much of the evidence is one year (that shorter run also can't test a 2022 break). It holds without the 2021 point (p = 0.006) and when the 2021 jump gets its own term (slope 0.52 before, 0.03 after, p < 0.001), but I added that term after seeing the jump. Errors are treated as independent across 15 years. The plateau also follows a pandemic-year jump, so it may be a one-off shift settling rather than a new regime. It shows the rise has paused, not that obesity has fallen.
+
+**Other sources**
+
+![Three measures](outputs/three_measures.png)
+
+| Age | BRFSS change, 2022-2025 (43 states) | 95% interval |
+|---|---|---|
+| 18-24 | -2.3 | -3.5 to -1.0 |
+| 25-34 | +0.5 | -0.7 to +1.6 |
+| 35-44 | +0.2 | -0.7 to +1.0 |
+| 45-54 | 0.0 | -0.9 to +0.9 |
+| 55-64 | +0.4 | -0.4 to +1.2 |
+| 65+ | -0.1 | -0.7 to +0.5 |
+
+- [Gallup](https://news.gallup.com/poll/696599/obesity-rate-declining.aspx) reports a fall from 39.9% (January 2022, margin 2.0) to 37.0% (2025, margin 0.9), concentrated at ages 40-49 (-4.3) and 50-64 (-5.0), where GLP-1 use is highest. Gallup doesn't claim the drugs caused it.
+- **BRFSS doesn't reproduce that.** The state mean moved -0.2 over the same years, and the ages 45-64 show no fall. Its one clear drop is among 18-24s, the opposite of what the GLP-1 story predicts, and that may be noise. The age bands differ, the intervals only cover variation between states, and Gallup's 2022 starting point was a record high from one survey, so it may have started high by chance.
+- [NHANES](https://www.cdc.gov/nchs/products/databriefs/db508.htm), the only one of the three that measures people, ends in August 2023 and found no significant change between its last two cycles. It can't settle this yet.
+
+State-level GLP-1 use would be the direct test, but I found no all-payer state series. Medicaid drug data may cover part of it, and I haven't tested it.
+
+**Self-report vs measured**
+
+| NHANES cycle | NHANES, measured | BRFSS, same years | Gap, points |
+|---|---|---|---|
+| 2013-2014 | 37.7% | 28.6% | 9.1 |
+| 2015-2016 | 39.6% | 29.3% | 10.4 |
+| 2017-March 2020 | 41.9% | 30.8% | 11.1 |
+| August 2021-August 2023 | 40.3% | 33.0% | 7.3 |
+
+Averaged with precision weights, the gap is 0.43 on the logit scale. The most recent cycle alone gives 0.31. The data can't reject a constant gap (p = 0.29), but the choice matters: a self-reported 33.1% in 2024 maps to 43.2% measured with the average and 40.4% with the latest, and a self-reported 35% strike maps to about 45% or 42%.
+
+| Chance of measured obesity crossing | Average gap | Latest gap |
+|---|---|---|
+| 42% within 1 year | 85% | 33% |
+| 44% within 3 years | 70% | 24% |
+| 46% within 5 years | 56% | 17% |
+
+These use the random walk at the national level and need a stable gap, which is exactly what's in doubt. The range is the result: **uncertainty about the level is larger than the uncertainty the surface reports.** The gap also mixes reporting bias with other differences: NHANES is age 20+ and age-adjusted, BRFSS is age 18+ and unadjusted, and the gap is national, so it can't correct a single state.
 
 ## Food supply: a hypothesis, not a finding
 
@@ -154,6 +221,9 @@ Limits: establishment counts aren't what people eat, density barely changes year
 |---|---|---|
 | [CDC BRFSS](https://data.cdc.gov/resource/hn4x-zwk7) | 50 states + DC, 2011-2024 | Obesity prevalence, physical inactivity |
 | [Census ACS](https://api.census.gov/) | 50 states + DC, 2011-2023 | Median household income |
+| [CDC BRFSS, latest](https://data.cdc.gov/resource/hn4x-zwk7) | Through 2025, overall and by age | Holdout, break test |
+| [NHANES, NCHS Data Brief 508](https://www.cdc.gov/nchs/products/databriefs/db508.htm) | 2013-2023 | Measured obesity |
+| [Gallup](https://news.gallup.com/poll/696599/obesity-rate-declining.aspx) | 2022, 2025 | Second self-report source |
 | [Census County Business Patterns](https://www2.census.gov/programs-surveys/cbp/datasets/) | 50 states + DC, 2012-2023 | Restaurant and grocery establishments |
 | [Census population estimates](https://www2.census.gov/programs-surveys/popest/datasets/) | 50 states + DC, 2012-2023 | Per-capita density |
 | [USDA ERS Sugar & Sweeteners](https://www.ers.usda.gov/data-products/sugar-and-sweeteners-yearbook-tables/) | 1966-2024 | Caloric sweeteners |
@@ -170,6 +240,10 @@ Limits: establishment counts aren't what people eat, density barely changes year
 | `outputs/backtest_scores.csv`, `outputs/backtest_calibration.csv`, `outputs/backtest_by_origin.csv`, `outputs/backtest_national.csv` | Out-of-sample scores, intervals and calibration |
 | `outputs/model_comparison_today.csv` | Current fit and random walk at today's level |
 | `outputs/state_food_panel_results.csv` | Restaurant density regressions |
+| `outputs/holdout_2025.csv` | Frozen models scored on 2025 |
+| `outputs/trend_break.csv`, `outputs/trend_break_checks.csv`, `outputs/age_changes.csv` | Break test, its stress tests, and changes by age |
+| `outputs/measured_gap.csv`, `outputs/measured_strikes.csv` | Self-report vs measured |
+| `data/raw/external_obesity_benchmarks.csv` | NHANES and Gallup figures, entered by hand from the linked sources |
 | `outputs/robustness_results.csv` | Stress tests on the national result |
 | `outputs/exposure_regression_results.csv`, `outputs/panel_regression_results.csv` | Regression output |
 | `outputs/*.png` | Figures |
